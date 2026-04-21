@@ -22,3 +22,6 @@ __pycache__/
 # Local environment
 .env
 .env.local
+
+# Papers / PDFs
+papers/
