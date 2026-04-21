@@ -1,0 +1,5 @@
+*The safety gap.* Safety properties in frontier models are not fixed features; they are fragile representations that can shift, weaken, or invert under adaptation. We focus on making this gap visible and controllable: understanding how safety-relevant structure forms inside models, how it changes across pretraining, fine-tuning, and deployment, and when it breaks.
+
+*Active interpretability.* Most mechanistic tools are applied after training, as diagnostics. We want to bring them earlier; into the training process itself, where they can catch problems before they consolidate. The goal is not only to explain failures but to steer against them in time.
+
+*Agentic alignment.* The hardest version of this problem is agentic. When a model calls tools, spawns subagents, and executes code across extended horizons, correlated failures compound in ways single-turn evaluations cannot surface. Safety is not solved in a chat window; it is solved when a model remains trustworthy across an autonomous task.

@@ -1,0 +1,1 @@
+Solaris Research is based at ETH Zürich. Our work is technical: we investigate the internals of frontier models and the conditions under which their safety properties hold or break down. The questions are narrow; the stakes are not.

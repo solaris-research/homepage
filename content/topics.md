@@ -1,0 +1,5 @@
+- How safety-relevant representations form and degrade across pretraining, fine-tuning, and adaptation; and what predicts drift before it reaches deployment.
+- Whether interpretability can be applied inside the training loop, early enough to catch and correct problems before they are baked in.
+- What standard evaluations miss; the gap between how a model behaves in testing and how it behaves once adapted, deployed, or composed into a larger system.
+- How tool use, multi-agent coordination, and long-horizon action change the safety picture; studied in realistic settings, not by analogy to chat.
+- Reproducible benchmarks, open evaluation pipelines, and mechanism-informed mitigations that others can check, build on, and extend.

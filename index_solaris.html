@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solaris Research</title>
+    <meta
+      name="description"
+      content="Solaris Research studies the safety properties of frontier AI systems. Based at ETH Zurich."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="sr_logo.png" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #faf6f1;
+        --bg-alt: #f3ede5;
+        --text: #1a1714;
+        --text-secondary: #6b5f54;
+        --accent: #d4734a;
+        --accent-hover: #c0623b;
+        --border: #e0d8ce;
+        --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ── Header ── */
+      .header {
+        padding: 100px 0 0;
+        text-align: center;
+      }
+
+      .header__name {
+        font-family: var(--font-mono);
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.1s forwards;
+      }
+
+      .header__tagline {
+        margin-top: 16px;
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.25s forwards;
+      }
+
+      /* ── Divider ── */
+      .divider {
+        width: 40px;
+        height: 1px;
+        background: var(--border);
+        margin: 56px auto;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.4s forwards;
+      }
+
+      /* ── Full-width divider ── */
+      .divider--full {
+        width: 100%;
+        height: 1px;
+        background: var(--border);
+        margin: 32px 0;
+      }
+
+      /* ── Body text ── */
+      .body {
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.5s forwards;
+      }
+
+      .body p {
+        margin-bottom: 1.4em;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .body p:last-child {
+        margin-bottom: 0;
+      }
+
+      .body .intro {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      .body a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .body a:hover {
+        color: var(--accent-hover);
+      }
+
+      .body .brand {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      /* ── Section headings ── */
+      .section-heading {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+      }
+
+      /* ── We work on ── */
+      .work-section {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.6s forwards;
+      }
+
+      .work-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .work-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 14px;
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .work-list li::before {
+        content: "\2013";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .work-list li strong {
+        font-family: var(--font-mono);
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+
+      /* ── Team ── */
+      .team-section {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.7s forwards;
+      }
+
+      .team-grid {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+      }
+
+      .team-member {
+        text-align: center;
+        width: 150px;
+      }
+
+      .team-member__photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 12px;
+        background: var(--bg-alt);
+      }
+
+      .team-member__name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .team-member__name a {
+        color: var(--text);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .team-member__name a:hover {
+        color: var(--accent);
+      }
+
+      .team-member__role {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .team-collab {
+        font-size: 0.93rem;
+        line-height: 1.65;
+        color: var(--text);
+      }
+
+      .team-collab a {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .team-collab a:hover {
+        color: var(--accent-hover);
+      }
+
+      /* ── What's new ── */
+      .news-section {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.75s forwards;
+      }
+
+      .news-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .news-list li {
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .news-date {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        display: inline-block;
+        min-width: 110px;
+      }
+
+      /* ── Opportunities ── */
+      .opps-section {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.8s forwards;
+      }
+
+      .opps-section p {
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+        line-height: 1.65;
+      }
+
+      .opps-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 24px;
+      }
+
+      .opps-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        font-size: 0.93rem;
+        line-height: 1.6;
+      }
+
+      .opps-list li::before {
+        content: "\2013";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .opps-list li strong {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      /* ── Links / CTA ── */
+      .links {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 32px;
+        justify-content: center;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.85s forwards;
+      }
+
+      .links a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .links a:hover {
+        color: var(--accent-hover);
+      }
+
+      /* ── Footer ── */
+      .footer {
+        margin-top: 80px;
+        padding: 32px 0;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.9s forwards;
+      }
+
+      /* ── Animation ── */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 600px) {
+        html {
+          font-size: 15px;
+        }
+
+        .header {
+          padding-top: 56px;
+        }
+
+        .header__name {
+          font-size: 1.6rem;
+        }
+
+        .team-grid {
+          gap: 24px;
+        }
+
+        .team-member__photo {
+          width: 100px;
+          height: 100px;
+        }
+
+        .links {
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .news-date {
+          display: block;
+          margin-bottom: 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+
+      <header class="header">
+        <h1 class="header__name">Solaris Research</h1>
+        <p class="header__tagline">
+          Frontier safety science &middot; Z&uuml;rich, Switzerland
+        </p>
+      </header>
+
+      <div class="divider"></div>
+
+      <!-- ── Mission ── -->
+      <main class="body">
+        <p class="intro">
+          A frontier safety science research lab studying how advanced AI systems
+          behave, why their safety properties sometimes fail, and what that means
+          for a world that depends on them.
+        </p>
+
+        <div class="divider--full"></div>
+
+        <p>
+          <span class="brand">Solaris Research</span> is based at ETH Z&uuml;rich. Our work is technical: we
+          investigate the internals of frontier models and the conditions under
+          which their safety properties hold or break down. The questions are
+          narrow; the stakes are not.
+        </p>
+        <p>
+          Our bet is that safety failures are tied to
+          low-dimensional structure inside models;  structure that can be
+          recovered mechanistically. If we can trace it, we can intervene:
+          <a href="https://arxiv.org/pdf/2505.24445" target="_blank" rel="noopener noreferrer"><strong>steering vectors</strong></a>, circuit-level analysis, and <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>calibrated constraints</strong></a> 
+          applied <em>across</em> pre-, post-training stages and narrow fine-tuning.
+        </p>
+        <p>
+          We also believe the field needs a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a>.
+          Too many safety claims rest on narrow benchmarks, unreproduced results,
+          or anthropomorphic language that outruns the evidence. Rigorous
+          evaluation, with careful operationalisation, sufficient scale,
+          and tests for alternative explanations is the work itself.
+        </p>
+      </main>
+
+      <!-- ── We work on ── -->
+      <section class="work-section">
+        <h2 class="section-heading">We work on</h2>
+        <ul class="work-list">
+          <li>
+            <strong>Alignment science.</strong> How safety-relevant
+            representations form and degrade across pretraining, fine-tuning,
+            and post-deployment adaptation.
+          </li>
+          <li>
+            <strong>Open benchmarks &amp; evaluations.</strong> Tools, datasets,
+            and stress tests that captures misalignment before deployment.
+          </li>
+          <li>
+            <strong>Active mechanistic interpretability.</strong> Steering
+            vectors, circuit analysis, and probe-guided detection brought into the
+            training loop as intervention techniques.
+          </li>
+          <li>
+            <strong>Agentic safety.</strong> The hardest version of this problem is <em>agentic</em>: when models call tools, coordinate in multi-agent settings, safety failures compound.
+
+            
+          </li>
+        </ul>
+      </section>
+
+      <!-- ── Team ── -->
+      <section class="team-section">
+        <h2 class="section-heading">Team</h2>
+        <div class="team-grid">
+          <p class="team-collab">
+          We are fortunate to be embedded at ETH Z&uuml;rich and work closely
+          with 
+          <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer">ETH AI Center</a>,
+          the <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">LAS group</a> (Prof. Andreas Krause),
+          <a href="https://ivia.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">IVIA lab</a> (Prof. Menna El-Assady),
+          <a href="https://www.spylab.ai/" target="_blank" rel="noopener noreferrer">SPY Lab</a> (Prof. Florian Tramér), and 
+          <a href="https://www.swiss-ai.org/" target="_blank" rel="noopener noreferrer">Swiss AI</a>.
+        </p>
+          <div class="team-member">
+            <img
+              class="team-member__photo"
+              src="https://annahedstroem.com/assets/profile.png"
+              alt="Anna Hedstr&ouml;m"
+              loading="lazy"
+            />
+            <p class="team-member__name">
+              <a href="https://annahedstroem.com" target="_blank" rel="noopener noreferrer">Anna Hedstr&ouml;m</a>
+            </p>
+            <p class="team-member__role">ETH AI Center fellow, Co-founder</p>
+          </div>
+          <div class="team-member">
+            <img
+              class="team-member__photo"
+              src="https://www.xccyn.com/author/xin-chen-cynthia/avatar_hudfbcb52b115b74508941974336b7302d_1394505_270x270_fill_q90_lanczos_center.jpg"
+              alt="Cynthia Chen"
+              loading="lazy"
+            />
+            <p class="team-member__name">
+              <a href="https://www.xccyn.com" target="_blank" rel="noopener noreferrer">Cynthia Chen</a>
+            </p>
+            <p class="team-member__role">PhD researcher, Co-founder</p>
+          </div>
+          <div class="team-member">
+            <img
+              class="team-member__photo"
+              src="https://luk-s.github.io/author/lukas-fluri/avatar_hu4356430692725253010.png"
+              alt="Lukas Fluri"
+              loading="lazy"
+            />
+            <p class="team-member__name">
+              <a href="https://luk-s.github.io" target="_blank" rel="noopener noreferrer">Lukas Fluri</a>
+            </p>
+            <p class="team-member__role">PhD researcher, Co-founder</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── What's new ── -->
+      <section id="news" class="news-section">
+        <h2 class="section-heading">What&rsquo;s new</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-date">April 2026</span>
+            Compute grant was accepted by the Swiss AI Initiative.
+          </li>
+          <li>
+            <span class="news-date">March 2026</span>
+            Solaris Research founded at ETH Z&uuml;rich.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ── Work with us ── -->
+      <section class="opps-section">
+        <h2 class="section-heading">Work with us</h2>
+        <p>
+          We are looking for technically strong, safety-driven students and
+          collaborators. If you want your work to matter, get in touch.
+        </p>
+        <ul class="opps-list">
+          <li>
+            <strong>Thesis &amp; semester projects</strong>: work on real
+            frontier safety problems, co-supervised across ETH labs, toward
+            conference publications and open-source artefacts.
+          </li>
+          <li>
+            <strong>Research visits &amp; independent projects</strong>:
+            bring your own safety question; we provide compute, mentorship, and
+            collaborators.
+          </li>
+          <li>
+            <strong>Labs &amp; industry</strong>: if you deploy models
+            and care about what happens to safety after fine-tuning, work with us
+            to discover problems early.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ── Bottom links ── -->
+      <nav class="links">
+        <a href="https://docs.google.com/forms/d/e/REPLACE_STUDENT_FORM/viewform">Apply as a student</a>
+        <a href="https://docs.google.com/forms/d/e/REPLACE_PARTNERS_FORM/viewform">Collaborate with us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <footer class="footer">
+        &copy; 2026 Solaris Research, ETH Z&uuml;rich.
+      </footer>
+    </div>
+  </body>
+</html>

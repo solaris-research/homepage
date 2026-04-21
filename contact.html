@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Solaris Research</title>
+    <meta
+      name="description"
+      content="Get in touch with Solaris Research."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="sr_logo.png" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #faf6f1;
+        --bg-alt: #f3ede5;
+        --text: #1a1714;
+        --text-secondary: #6b5f54;
+        --accent: #d4734a;
+        --accent-hover: #c0623b;
+        --border: #e0d8ce;
+        --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .header {
+        padding: 100px 0 0;
+      }
+
+      .header__name {
+        font-family: var(--font-mono);
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.1s forwards;
+      }
+
+      .divider {
+        width: 40px;
+        height: 1px;
+        background: var(--border);
+        margin: 40px 0;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.25s forwards;
+      }
+
+      .contact-heading {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-secondary);
+        margin-bottom: 28px;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.35s forwards;
+      }
+
+      .contact-body {
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.45s forwards;
+      }
+
+      .contact-body p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.4em;
+      }
+
+      .contact-body a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .contact-body a:hover {
+        color: var(--accent-hover);
+      }
+
+      .contact-body a.mono {
+        font-family: var(--font-mono);
+        font-size: 0.88rem;
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 48px;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.55s forwards;
+      }
+
+      .back:hover {
+        color: var(--accent);
+      }
+
+      .footer {
+        margin-top: 80px;
+        padding: 32px 0;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.65s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        html {
+          font-size: 15px;
+        }
+
+        .header {
+          padding-top: 56px;
+        }
+
+        .header__name {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1 class="header__name">Solaris Research</h1>
+      </header>
+
+      <div class="divider"></div>
+
+      <main>
+        <h2 class="contact-heading">Contact us</h2>
+
+        <div class="contact-body">
+          <p>
+            For those interested in joining our frontier safety science efforts,
+            please
+            <a href="https://docs.google.com/forms/d/e/REPLACE_STUDENT_FORM/viewform">apply as a student</a>
+            or
+            <a href="https://docs.google.com/forms/d/e/REPLACE_PARTNERS_FORM/viewform">collaborator</a>.
+          </p>
+          <p>
+            For other inquiries please email us at
+            <a class="mono" href="mailto:team@solaris-research.com">team@solaris-research.com</a>.
+          </p>
+        </div>
+
+        <a class="back" href="index_solaris.html">&larr; Back</a>
+      </main>
+
+      <footer class="footer">
+        &copy; 2026 Solaris Research, ETH Z&uuml;rich.
+      </footer>
+    </div>
+  </body>
+</html>
