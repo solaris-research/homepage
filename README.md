@@ -1,2 +1,2 @@
-# website
-Code for our website
+# Homepage
+Code for our homepage
