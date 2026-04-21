@@ -51,7 +51,7 @@
       }
 
       .page {
-        max-width: 640px;
+        max-width: 650px;
         margin: 0 auto;
         padding: 0 24px;
       }
@@ -108,7 +108,7 @@
 
       .body p {
         margin-bottom: 1.4em;
-        font-size: 1rem;
+        font-size: 0.95rem;
         font-weight: 400;
       }
 
@@ -117,7 +117,7 @@
       }
 
       .body .intro {
-        font-size: 1.1rem;
+        font-size: 1.02rem;
         font-weight: 500;
         color: var(--text);
       }
@@ -426,33 +426,23 @@
       <!-- ── Mission ── -->
       <main class="body">
         <p class="intro">
-          An AI safety research lab studying the science behind how frontier
-          systems behave, why their safety properties fail, and what that means
-          when billions of people depend on them.
+          <span class="brand">Solaris Research</span> is a technical AI safety lab based at ETH Z&uuml;rich. We build the science to understand, detect and prevent failure in frontier models.
         </p>
 
         <div class="divider--full"></div>
 
         <p>
-          <span class="brand">Solaris Research</span> is based at ETH Z&uuml;rich. Our work is technical: we
-          investigate the internals of frontier models and the conditions under
-          which their safety properties hold or break down. The questions are
-          narrow; the stakes are not.
-        </p>
-        <p>
-          Our bet is that safety failures are tied to
-          low-dimensional structure inside models;  structure that can be
-          recovered mechanistically. If we can trace it, we can intervene:
-          <a href="https://arxiv.org/pdf/2505.24445" target="_blank" rel="noopener noreferrer"><strong>steering vectors</strong></a>, circuit-level analysis, and <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>calibrated constraints</strong></a> 
-          applied <em>across</em> pre-, post-training stages and narrow fine-tuning.
-        </p>
-        <p>
-          We also believe the field needs a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a>.
-          Too many safety claims rest on narrow benchmarks, unreproduced results,
-          or anthropomorphic language that outruns the evidence. Rigorous
-          evaluation, with careful operationalisation, sufficient scale,
-          and tests for alternative explanations is the work itself.
-        </p>
+          Models are continuously adapted and deployed in new contexts, yet we have almost no science for how their safety properties shift. We study this gap: tracing safety-relevant low-dimensional structures inside models and intervening on it using tools such as
+          <a href="https://arxiv.org/pdf/2505.24445" target="_blank" rel="noopener noreferrer"><strong>geometric steering</strong></a> and
+          <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>probe-based constraints</strong></a>.
+          </p>
+          <p>
+
+          We insist on a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or unreproduced results. We prioritise rigorous operationalisation, sufficient scale;  tests for alternative explanations.  The research questions are narrow; the stakes are not.
+
+  
+
+        
       </main>
 
       <!-- ── We work on ── -->
@@ -462,22 +452,37 @@
           <li>
             <strong>Alignment science.</strong> How safety-relevant
             representations form and degrade across pretraining, fine-tuning,
-            and post-deployment adaptation.
+            and post-deployment adaptation
           </li>
           <li>
             <strong>Open benchmarks &amp; evaluations.</strong> Tools, datasets,
-            and reproducible benchmarks are released so that other researchers can build on our work.
+            and reproducible benchmarks are released openly so that other researchers can build on top
 
           </li>
           <li>
             <strong>Active mechanistic interpretability.</strong> Steering
-            vectors, circuit analysis, and probe-guided detection brought into the
-            training loop as intervention.
+            vectors, circuit analysis;  probe-guided detection brought into the
+            training loop as intervention
           </li>
           <li>
-            <strong>Agentic safety.</strong> When models call tools, coordinate in multi-agent settings, we evaluate how safety failures compound.
+            <strong>Agentic safety.</strong> When models call tools, coordinate in multi-agent settings, we evaluate how safety failures compound
 
             
+          </li>
+        </ul>
+      </section>
+
+      <!-- ── What's new ── -->
+      <section id="news" class="news-section">
+        <h2 class="section-heading">What&rsquo;s new</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-date">April 2026</span>
+            Compute grant was accepted by the Swiss AI Initiative.
+          </li>
+          <li>
+            <span class="news-date">March 2026</span>
+            Solaris Research founded at ETH Z&uuml;rich.
           </li>
         </ul>
       </section>
@@ -488,11 +493,11 @@
         <div class="team-grid">
           <p class="team-collab">
           We are fortunate to be embedded at ETH Z&uuml;rich and work closely
-          with 
+          with
           <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer">ETH AI Center</a>,
           the <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">LAS group</a> (Prof. Andreas Krause),
           <a href="https://ivia.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">IVIA lab</a> (Prof. Menna El-Assady),
-          <a href="https://www.spylab.ai/" target="_blank" rel="noopener noreferrer">SPY Lab</a> (Prof. Florian Tramér), and 
+          <a href="https://www.spylab.ai/" target="_blank" rel="noopener noreferrer">SPY Lab</a> (Prof. Florian Tramér) and
           <a href="https://www.swiss-ai.org/" target="_blank" rel="noopener noreferrer">Swiss AI</a>.
         </p>
           <div class="team-member">
@@ -534,51 +539,35 @@
         </div>
       </section>
 
-      <!-- ── What's new ── -->
-      <section id="news" class="news-section">
-        <h2 class="section-heading">What&rsquo;s new</h2>
-        <ul class="news-list">
-          <li>
-            <span class="news-date">April 2026</span>
-            Compute grant was accepted by the Swiss AI Initiative.
-          </li>
-          <li>
-            <span class="news-date">March 2026</span>
-            Solaris Research founded at ETH Z&uuml;rich.
-          </li>
-        </ul>
-      </section>
-
       <!-- ── Work with us ── -->
       <section class="opps-section">
         <h2 class="section-heading">Work with us</h2>
         <p>
           We are looking for technically strong, safety-driven students and
-          collaborators. If you want your work to matter, get in touch.
+          collaborators. If evidence-based AI safety science matters to you, get in touch.
         </p>
         <ul class="opps-list">
           <li>
             <strong>Thesis &amp; semester projects</strong>: work on real
             frontier safety problems, co-supervised across ETH labs, toward
-            conference publications and open-source artefacts.
+            conference publications and open science
           </li>
           <li>
             <strong>Research visits &amp; independent projects</strong>:
-            bring your own safety question; we provide compute, mentorship, and
-            collaborators.
+            bring your own safety question; we provide compute, mentorship and  
+            collaborators
           </li>
           <li>
-            <strong>Labs &amp; industry</strong>: if you deploy models
-            and care about what happens to safety after fine-tuning, work with us
-            to discover problems early.
+            <strong>Labs &amp; industry</strong>: if you deploy models in high-stake domains
+            and care about what happens to safety after fine-tuning, collaborate with us
           </li>
         </ul>
       </section>
 
       <!-- ── Bottom links ── -->
       <nav class="links">
-        <a href="https://docs.google.com/forms/d/e/REPLACE_STUDENT_FORM/viewform">Apply as a student</a>
-        <a href="https://docs.google.com/forms/d/e/REPLACE_PARTNERS_FORM/viewform">Collaborate with us</a>
+        <a href="students.html">Apply as a student</a>
+        <a href="collaborate.html">Collaborate with us</a>
         <a href="contact.html">Contact</a>
       </nav>
 

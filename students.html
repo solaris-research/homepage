@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apply as a Student — Solaris Research</title>
+    <meta
+      name="description"
+      content="Work with Solaris Research on frontier AI safety as a student at ETH Zurich."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="sr_logo.png" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f7f7f6;
+        --bg-alt: #f3f2ef;
+        --text: #092544;
+        --text-secondary: #092544cc;
+        --accent: #df4e3c;
+        --accent-hover: #c24034;
+        --border: #09254414;
+        --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      }
+
+      html {
+        font-size: 15px;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .header {
+        padding: 80px 0 0;
+      }
+
+      .header__name {
+        font-family: var(--font-mono);
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.1s forwards;
+      }
+
+      .divider {
+        width: 40px;
+        height: 1px;
+        background: var(--border);
+        margin: 36px 0;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.25s forwards;
+      }
+
+      .section-heading {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.35s forwards;
+      }
+
+      .content {
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.45s forwards;
+      }
+
+      .content p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1.2em;
+      }
+
+      .content a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .content a:hover {
+        color: var(--accent-hover);
+      }
+
+      .content strong {
+        font-weight: 600;
+      }
+
+      .content ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.4em;
+      }
+
+      .content ul li {
+        position: relative;
+        padding-left: 18px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .content ul li::before {
+        content: "\2013";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .section-sub {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        margin-top: 28px;
+        margin-bottom: 12px;
+      }
+
+      .cta {
+        display: inline-block;
+        margin-top: 28px;
+        padding: 10px 26px;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #fff;
+        background: var(--accent);
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background 0.2s ease;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.55s forwards;
+      }
+
+      .cta:hover {
+        background: var(--accent-hover);
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 48px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.65s forwards;
+      }
+
+      .back:hover {
+        color: var(--accent);
+      }
+
+      .footer {
+        margin-top: 64px;
+        padding: 24px 0;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.7s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        html {
+          font-size: 15px;
+        }
+
+        .header {
+          padding-top: 48px;
+        }
+
+        .header__name {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1 class="header__name">Solaris Research</h1>
+      </header>
+
+      <div class="divider"></div>
+
+      <main>
+
+        <div class="content">
+          <p>
+            We offer thesis projects, semester projects, research visits, and independent work. What you get:
+          </p>
+
+          <ul>
+            <li>Publish at top-tier ML conferences and contribute to open science</li>
+            <li>Compute, infrastructure, and collaborators to run experiments at scale</li>
+            <li>Mentorship, research taste, and real ownership over your direction</li>
+          </ul>
+
+          <a
+            class="cta"
+            href="https://docs.google.com/forms/d/e/REPLACE_STUDENT_FORM/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Apply as a student</a>
+        </div>
+
+        <a class="back" href="index_solaris.html">&larr; Back</a>
+      </main>
+    </div>
+  </body>
+</html>
