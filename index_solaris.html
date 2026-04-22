@@ -185,6 +185,9 @@
         font-size: 0.88rem;
         font-weight: 500;
         letter-spacing: -0.01em;
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+        text-underline-offset: 3px;
       }
 
       /* ── Team ── */
@@ -299,6 +302,16 @@
         line-height: 1.65;
       }
 
+      .opps-section a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .opps-section a:hover {
+        color: var(--accent-hover);
+      }
+
       .opps-list {
         list-style: none;
         padding: 0;
@@ -325,6 +338,9 @@
         font-family: var(--font-mono);
         font-size: 0.85rem;
         font-weight: 500;
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+        text-underline-offset: 3px;
       }
 
       /* ── Links / CTA ── */
@@ -341,15 +357,21 @@
       }
 
       .links a {
+        font-family: var(--font-mono);
         color: var(--accent);
         text-decoration: none;
-        font-size: 0.95rem;
+        font-size: 0.88rem;
         font-weight: 500;
         transition: color 0.2s ease;
       }
 
       .links a:hover {
         color: var(--accent-hover);
+      }
+
+      a.mono {
+        font-family: var(--font-mono);
+        font-size: 0.88rem;
       }
 
       /* ── Footer ── */
@@ -426,19 +448,19 @@
       <!-- ── Mission ── -->
       <main class="body">
         <p class="intro">
-          <span class="brand">Solaris Research</span> is a technical AI safety lab based at ETH Z&uuml;rich. We build the science to understand, detect and prevent failure in frontier models.
+          <span class="brand">Solaris Research</span> is a technical AI safety lab based at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a>. We build the science to understand, detect and prevent failure in frontier models.
         </p>
 
         <div class="divider--full"></div>
 
         <p>
-          Models are continuously adapted and deployed in new contexts, yet we have almost no science for how their safety properties shift. We study this gap: tracing safety-relevant low-dimensional structures inside models and intervening on it using tools such as
+         Frontier models are continuously adapted and deployed in new contexts, yet we have almost no science for how their risk profiles shift. We study this gap: tracing alignment-relevant low-dimensional structures inside models and intervening on them using tools such as
           <a href="https://arxiv.org/pdf/2505.24445" target="_blank" rel="noopener noreferrer"><strong>geometric steering</strong></a> and
           <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>probe-based constraints</strong></a>.
           </p>
           <p>
 
-          We insist on a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or unreproduced results. We prioritise rigorous operationalisation, sufficient scale;  tests for alternative explanations.  The research questions are narrow; the stakes are not.
+          We insist on a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>unreproduced results</strong></a>. We prioritise rigorous operationalisation, sufficient scale and evaluations for alternative explanations. The research questions are narrow; the stakes are not.
 
   
 
@@ -450,22 +472,23 @@
         <h2 class="section-heading">We work on</h2>
         <ul class="work-list">
           <li>
-            <strong>Alignment science.</strong> How safety-relevant
+            <strong>Misalignment science.</strong> How safety-relevant
             representations form and degrade across pretraining, fine-tuning,
-            and post-deployment adaptation
-          </li>
-          <li>
-            <strong>Open benchmarks &amp; evaluations.</strong> Tools, datasets,
-            and reproducible benchmarks are released openly so that other researchers can build on top
-
+            and post-deployment adaptation stages
           </li>
           <li>
             <strong>Active mechanistic interpretability.</strong> Steering
-            vectors, circuit analysis;  probe-guided detection brought into the
-            training loop as intervention
+            vectors, circuit analysis and probe-guided detection employed as intervention proactively while
+            training 
+          </li>
+            <li>
+            <strong>Open benchmarks &amp; evaluations.</strong> Tools, datasets,
+            and reproducible benchmarks on emergent misalignment so other researchers can build on top
+
           </li>
           <li>
-            <strong>Agentic safety.</strong> When models call tools, coordinate in multi-agent settings, we evaluate how safety failures compound
+            <strong>Agentic safety.</strong> When models call tools, 
+            coordinate in multi-agent settings, we evaluate how anthropomorphised misalignment risks compound
 
             
           </li>
@@ -492,7 +515,7 @@
         <h2 class="section-heading">Team</h2>
         <div class="team-grid">
           <p class="team-collab">
-          We are fortunate to be embedded at ETH Z&uuml;rich and work closely
+          We are fortunate to be embedded at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a> and work closely
           with
           <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer">ETH AI Center</a>,
           the <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">LAS group</a> (Prof. Andreas Krause),
@@ -543,31 +566,32 @@
       <section class="opps-section">
         <h2 class="section-heading">Work with us</h2>
         <p>
-          We are looking for technically strong, safety-driven students and
-          collaborators. If evidence-based AI safety science matters to you, get in touch.
-        </p>
-        <ul class="opps-list">
-          <li>
-            <strong>Thesis &amp; semester projects</strong>: work on real
-            frontier safety problems, co-supervised across ETH labs, toward
-            conference publications and open science
-          </li>
-          <li>
-            <strong>Research visits &amp; independent projects</strong>:
-            bring your own safety question; we provide compute, mentorship and  
-            collaborators
-          </li>
-          <li>
-            <strong>Labs &amp; industry</strong>: if you deploy models in high-stake domains
-            and care about what happens to safety after fine-tuning, collaborate with us
-          </li>
-        </ul>
+          We work with students, researchers labs and industry partners who share our commitment to rigorous, evidence-based frontier safety science.
+          </p>
+          
+          <ul class="opps-list">
+  <li>
+    <strong>Thesis, semester &amp; independent projects</strong>: work on frontier safety problems, co-supervised across ETH labs, with a path toward publication and open science
+  </li>
+  <li>
+    <strong>Senior collaborators</strong>: bring a clear safety question; we provide co-mentorship, compute and collaborators across misalignment and interpretability topics
+  </li>
+  <li>
+    <strong>Labs &amp; industry partners</strong>: if you deploy models in high-stakes settings need safety audits after adaptation, collaborate with us
+  </li>
+</ul>
+<!--
+<p>
+          Get in touch <a class="mono" href="mailto:team@solaris-research.com">team@solaris-research.com</a>.
+          </p>
+        -->
+                  
       </section>
 
       <!-- ── Bottom links ── -->
       <nav class="links">
-        <a href="students.html">Apply as a student</a>
-        <a href="collaborate.html">Collaborate with us</a>
+        <a href="https://docs.google.com/forms/d/e/REPLACE_STUDENT_FORM/viewform" target="_blank" rel="noopener noreferrer">Apply as a student</a>
+        <a href="https://docs.google.com/forms/d/e/REPLACE_PARTNERS_FORM/viewform" target="_blank" rel="noopener noreferrer">Collaborate with us</a>
         <a href="contact.html">Contact</a>
       </nav>
 
