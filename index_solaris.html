@@ -433,7 +433,28 @@
       }
     </style>
   </head>
+  <script>
+  if (localStorage.getItem("auth") === "1") {
+    document.getElementById("gate").style.display = "none";
+  }
+
+  function check() {
+    if (document.getElementById("pw").value === "solaris2026") {
+      localStorage.setItem("auth", "1");
+      document.getElementById("gate").style.display = "none";
+    } else {
+      alert("Wrong password");
+    }
+  }
+</script>
   <body>
+    <div id="gate" style="position:fixed;inset:0;background:#f7f7f6;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="text-align:center;">
+    <h2 style="margin-bottom:12px;">Enter password</h2>
+    <input id="pw" type="password" style="padding:10px;">
+    <button onclick="check()" style="padding:10px;">Enter</button>
+  </div>
+</div>
     <div class="page">
 
       <header class="header">
@@ -460,7 +481,7 @@
           </p>
           <p>
 
-          We insist on a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>unreproduced results</strong></a>. We prioritise rigorous operationalisation, sufficient scale and evaluations for alternative explanations. The research questions are narrow; the stakes are not.
+          We insist on a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>unreproducible results</strong></a>. We prioritise rigorous operationalisation, sufficient scale and evaluations for alternative explanations. The research questions are narrow; the stakes are not.
 
   
 
@@ -512,7 +533,7 @@
 
       <!-- ── Team ── -->
       <section class="team-section">
-        <h2 class="section-heading">Team</h2>
+        <h2 class="section-heading">The team</h2>
         <div class="team-grid">
           <p class="team-collab">
           We are fortunate to be embedded at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a> and work closely
@@ -533,7 +554,7 @@
             <p class="team-member__name">
               <a href="https://annahedstroem.com" target="_blank" rel="noopener noreferrer">Anna Hedstr&ouml;m</a>
             </p>
-            <p class="team-member__role">ETH AI Center fellow, Co-founder</p>
+            <p class="team-member__role">Co-founder</p>
           </div>
           <div class="team-member">
             <img
@@ -545,7 +566,7 @@
             <p class="team-member__name">
               <a href="https://www.xccyn.com" target="_blank" rel="noopener noreferrer">Cynthia Chen</a>
             </p>
-            <p class="team-member__role">PhD researcher, Co-founder</p>
+            <p class="team-member__role">Co-founder</p>
           </div>
           <div class="team-member">
             <img
@@ -557,7 +578,7 @@
             <p class="team-member__name">
               <a href="https://luk-s.github.io" target="_blank" rel="noopener noreferrer">Lukas Fluri</a>
             </p>
-            <p class="team-member__role">PhD researcher, Co-founder</p>
+            <p class="team-member__role">Co-founder</p>
           </div>
         </div>
       </section>
@@ -571,13 +592,13 @@
           
           <ul class="opps-list">
   <li>
-    <strong>Thesis, semester &amp; independent projects</strong>: work on frontier safety problems, co-supervised across ETH labs, with a path toward publication and open science
+    <strong>Student thesis, semester &amp; independent projects</strong>: work on impactful problems, co-supervised across ETH labs, with a path toward ML publication
   </li>
   <li>
-    <strong>Senior collaborators</strong>: bring a clear safety question; we provide co-mentorship, compute and collaborators across misalignment and interpretability topics
+    <strong>Project collaborators</strong>: bring a clear safety question; we provide compute and co-mentorship across misalignment, evaluation and interpretability topics
   </li>
   <li>
-    <strong>Labs &amp; industry partners</strong>: if you deploy models in high-stakes settings need safety audits after adaptation, collaborate with us
+    <strong>Labs &amp; industry partners</strong>: if you deploy ML models in high-stakes settings and need safety audits after adaptation, collaborate with us
   </li>
 </ul>
 <!--
