@@ -434,7 +434,28 @@
       }
     </style>
   </head>
+  <script>
+  if (localStorage.getItem("auth") === "1") {
+    document.getElementById("gate").style.display = "none";
+  }
+
+  function check() {
+    if (document.getElementById("pw").value === "solaris2026") {
+      localStorage.setItem("auth", "1");
+      document.getElementById("gate").style.display = "none";
+    } else {
+      alert("Wrong password");
+    }
+  }
+</script>
   <body>
+    <div id="gate" style="position:fixed;inset:0;background:#f7f7f6;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="text-align:center;">
+    <h2 style="margin-bottom:12px;">Enter password</h2>
+    <input id="pw" type="password" style="padding:10px;">
+    <button onclick="check()" style="padding:10px;">Enter</button>
+  </div>
+</div>
     <div class="page">
 
       <header class="header">
