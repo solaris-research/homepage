@@ -434,20 +434,6 @@
       }
     </style>
   </head>
-  <script>
-  if (localStorage.getItem("auth") === "1") {
-    document.getElementById("gate").style.display = "none";
-  }
-
-  function check() {
-    if (document.getElementById("pw").value === "solaris2026") {
-      localStorage.setItem("auth", "1");
-      document.getElementById("gate").style.display = "none";
-    } else {
-      alert("Wrong password");
-    }
-  }
-</script>
   <body>
     <div id="gate" style="position:fixed;inset:0;background:#f7f7f6;display:flex;align-items:center;justify-content:center;z-index:9999;">
   <div style="text-align:center;">
@@ -456,6 +442,39 @@
     <button onclick="check()" style="padding:10px;">Enter</button>
   </div>
 </div>
+  <script>
+  document.querySelector('.page').style.animationPlayState = 'paused';
+  document.querySelectorAll('[style*="animation"], .header__name, .header__tagline, .divider, .body, .work-section, .team-section, .news-section, .opps-section, .links, .footer, .cta').forEach(function(el) {
+    el.style.animationPlayState = 'paused';
+    el.style.opacity = '0';
+  });
+
+  function unlock() {
+    document.getElementById("gate").style.display = "none";
+    document.querySelectorAll('.header__name, .header__tagline, .divider, .body, .work-section, .team-section, .news-section, .opps-section, .links, .footer, .cta').forEach(function(el) {
+      el.style.animationPlayState = 'running';
+      var name = el.className;
+      var old = getComputedStyle(el).animation;
+      el.style.animation = 'none';
+      el.offsetHeight;
+      el.style.animation = '';
+      el.style.animationPlayState = 'running';
+    });
+  }
+
+  if (localStorage.getItem("auth") === "1") {
+    unlock();
+  }
+
+  function check() {
+    if (document.getElementById("pw").value === "solaris2026") {
+      localStorage.setItem("auth", "1");
+      unlock();
+    } else {
+      alert("Wrong password");
+    }
+  }
+</script>
     <div class="page">
 
       <header class="header">
