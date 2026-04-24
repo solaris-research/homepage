@@ -442,39 +442,6 @@
     <button onclick="check()" style="padding:10px;font-size:16px;">Enter</button>
   </div>
 </div>
-  <script>
-  document.querySelector('.page').style.animationPlayState = 'paused';
-  document.querySelectorAll('[style*="animation"], .header__name, .header__tagline, .divider, .body, .work-section, .team-section, .news-section, .opps-section, .links, .footer, .cta').forEach(function(el) {
-    el.style.animationPlayState = 'paused';
-    el.style.opacity = '0';
-  });
-
-  function unlock() {
-    document.getElementById("gate").style.display = "none";
-    document.querySelectorAll('.header__name, .header__tagline, .divider, .body, .work-section, .team-section, .news-section, .opps-section, .links, .footer, .cta').forEach(function(el) {
-      el.style.animationPlayState = 'running';
-      var name = el.className;
-      var old = getComputedStyle(el).animation;
-      el.style.animation = 'none';
-      el.offsetHeight;
-      el.style.animation = '';
-      el.style.animationPlayState = 'running';
-    });
-  }
-
-  if (localStorage.getItem("auth") === "1") {
-    unlock();
-  }
-
-  function check() {
-    if (document.getElementById("pw").value === "solaris2026") {
-      localStorage.setItem("auth", "1");
-      unlock();
-    } else {
-      alert("Wrong password");
-    }
-  }
-</script>
     <div class="page">
 
       <header class="header">
@@ -501,7 +468,7 @@
           </p>
           <p>
 
-          We insist on a <a href="https://openreview.net/forum?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>unreproducible results</strong></a>. We prioritise rigorous operationalisation, sufficient scale and evaluations for alternative explanations. The research questions are narrow; the stakes are not.
+          We insist on a <a href="https://openreview.net/pdf?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>unreproducible results</strong></a>. We prioritise rigorous operationalisation, sufficient scale and evaluations for alternative explanations. The research questions are narrow; the stakes are not.
 
   
 
@@ -607,7 +574,7 @@
       <section class="opps-section">
         <h2 class="section-heading">Work with us</h2>
         <p>
-          We work with students, research labs and industry partners who share our commitment to rigorous, evidence-based frontier safety science.
+          We work with students, research labs and industry partners who share our commitment to open, evidence-based frontier safety science.
           </p>
           
           <ul class="opps-list">
@@ -640,5 +607,38 @@
         &copy; 2026 Solaris Research, ETH Z&uuml;rich.
       </footer>
     </div>
+  <script>
+  var els = '.header__name, .header__tagline, .divider, .body, .work-section, .team-section, .news-section, .opps-section, .links, .footer, .cta';
+
+  if (localStorage.getItem("auth") === "1") {
+    document.getElementById("gate").style.display = "none";
+  } else {
+    document.querySelectorAll(els).forEach(function(el) {
+      el.style.animation = 'none';
+      el.style.opacity = '0';
+    });
+  }
+
+  function unlock() {
+    document.getElementById("gate").style.display = "none";
+    document.querySelectorAll(els).forEach(function(el) {
+      el.style.animation = '';
+      el.style.opacity = '';
+      var a = el.style.animation;
+      el.style.animation = 'none';
+      el.offsetHeight;
+      el.style.animation = '';
+    });
+  }
+
+  function check() {
+    if (document.getElementById("pw").value === "solaris2026") {
+      localStorage.setItem("auth", "1");
+      unlock();
+    } else {
+      alert("Wrong password");
+    }
+  }
+  </script>
   </body>
 </html>
