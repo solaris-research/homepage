@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solaris Research — Logo Experiments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f7f7f6;
+      --dark: #092544;
+      --accent: #df4e3c;
+      --accent-hover: #c24034;
+      --mono: "JetBrains Mono", monospace;
+      --sans: "Inter", sans-serif;
+    }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--dark);
+    }
+    .gallery {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    .gallery h1 {
+      font-family: var(--mono);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .gallery > p {
+      font-size: 0.85rem;
+      color: #092544aa;
+      margin-bottom: 48px;
+    }
+    .experiment {
+      margin-bottom: 64px;
+      border: 1px solid #09254414;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .experiment__label {
+      padding: 12px 20px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #092544aa;
+      border-bottom: 1px solid #09254414;
+      background: #f3f2ef;
+    }
+    .experiment__canvas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 340px;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .experiment__canvas.dark {
+      background: var(--dark);
+    }
+
+    /* ═══════════════════════════════════════
+       1. HOLLOW OUTLINE — breathing pulse
+    ═══════════════════════════════════════ */
+    .logo1 { text-align: center; }
+    .logo1 .title {
+      font-family: var(--mono);
+      font-size: 4.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--dark);
+      animation: breathe 4s ease-in-out infinite;
+    }
+    .logo1 .sub {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: -4px;
+      text-align: right;
+      padding-right: 4px;
+      animation: breathe 4s ease-in-out infinite 0.5s;
+    }
+    @keyframes breathe {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ═══════════════════════════════════════
+       2. ORBITAL RINGS — rotating dashes
+    ═══════════════════════════════════════ */
+    .logo2-wrap {
+      position: relative;
+      width: 260px;
+      height: 260px;
+    }
+    .logo2-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+    .logo2-center .title {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #fff;
+    }
+    .logo2-center .sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ffffff88;
+      margin-top: 2px;
+    }
+    .orbit {
+      position: absolute;
+      top: 50%; left: 50%;
+      border-radius: 50%;
+      border: 1.5px dashed var(--accent);
+      animation: spin linear infinite;
+    }
+    .orbit:nth-child(1) {
+      width: 180px; height: 180px;
+      margin: -90px 0 0 -90px;
+      animation-duration: 20s;
+      opacity: 0.7;
+    }
+    .orbit:nth-child(2) {
+      width: 230px; height: 230px;
+      margin: -115px 0 0 -115px;
+      animation-duration: 30s;
+      animation-direction: reverse;
+      border-style: dotted;
+      opacity: 0.5;
+    }
+    .orbit:nth-child(3) {
+      width: 260px; height: 260px;
+      margin: -130px 0 0 -130px;
+      animation-duration: 25s;
+      opacity: 0.3;
+    }
+    .orbit-dot {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .orbit:nth-child(1) .orbit-dot { top: -3px; left: 50%; margin-left: -3px; }
+    .orbit:nth-child(2) .orbit-dot { top: 50%; right: -3px; margin-top: -3px; }
+    .orbit:nth-child(3) .orbit-dot { bottom: -3px; left: 50%; margin-left: -3px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ═══════════════════════════════════════
+       3. WAVE UNDERLINE — flowing sine wave
+    ═══════════════════════════════════════ */
+    .logo3 { text-align: center; position: relative; }
+    .logo3 .title {
+      font-family: var(--mono);
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--dark);
+    }
+    .logo3 .sub {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #092544aa;
+      margin-top: 4px;
+    }
+    .logo3 svg {
+      display: block;
+      margin: 12px auto 0;
+      width: 320px;
+      height: 24px;
+    }
+    .logo3 .wave-line {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 0;
+      animation: waveFlow 3s linear infinite;
+    }
+    .logo3 .wave-line2 {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 300;
+      opacity: 0.3;
+      animation: waveFlow 4s linear infinite reverse;
+    }
+    @keyframes waveFlow {
+      to { stroke-dashoffset: -600; }
+    }
+
+    /* ═══════════════════════════════════════
+       4. PARTICLE FIELD — floating dots
+    ═══════════════════════════════════════ */
+    .logo4-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .logo4-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+    .logo4-text .title {
+      font-family: var(--mono);
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--dark);
+    }
+    .logo4-text .sub {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #092544aa;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-340px) translateX(var(--dx)); opacity: 0; }
+    }
+
+    /* ═══════════════════════════════════════
+       5. CONCENTRIC MORPH — breathing rings
+    ═══════════════════════════════════════ */
+    .logo5-wrap {
+      position: relative;
+      width: 280px;
+      height: 280px;
+    }
+    .logo5-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+    .logo5-center .title {
+      font-family: var(--mono);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+    }
+    .logo5-center .sub {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #092544aa;
+    }
+    .ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      animation: pulse ease-in-out infinite;
+    }
+    .ring:nth-child(1) {
+      width: 100px; height: 100px;
+      margin: -50px 0 0 -50px;
+      animation-duration: 4s;
+      opacity: 0.8;
+    }
+    .ring:nth-child(2) {
+      width: 150px; height: 150px;
+      margin: -75px 0 0 -75px;
+      animation-duration: 5s;
+      animation-delay: 0.5s;
+      opacity: 0.5;
+    }
+    .ring:nth-child(3) {
+      width: 200px; height: 200px;
+      margin: -100px 0 0 -100px;
+      animation-duration: 6s;
+      animation-delay: 1s;
+      opacity: 0.3;
+    }
+    .ring:nth-child(4) {
+      width: 250px; height: 250px;
+      margin: -125px 0 0 -125px;
+      animation-duration: 7s;
+      animation-delay: 1.5s;
+      opacity: 0.15;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* ═══════════════════════════════════════
+       12–14. HOLLOW MONO + CIRCULAR ARCS
+    ═══════════════════════════════════════ */
+
+    /* Shared text styles for 12–14 */
+    .logo12, .logo13, .logo14 {
+      position: relative;
+      text-align: center;
+    }
+    .logo12 .text-block, .logo13 .text-block, .logo14 .text-block {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+    }
+    .logo12 .title, .logo13 .title, .logo14 .title {
+      font-family: var(--mono);
+      font-size: 4.2rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: transparent;
+      -webkit-text-stroke: 2.5px var(--dark);
+      display: block;
+      text-align: left;
+    }
+    .logo12 .sub, .logo13 .sub, .logo14 .sub {
+      font-family: var(--mono);
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: -2px;
+      text-align: right;
+      display: block;
+    }
+
+    /* Shared SVG container */
+    .logo12 svg.arcs, .logo13 svg.arcs, .logo14 svg.arcs {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 400px; height: 400px;
+      margin: -200px 0 0 -200px;
+      z-index: 1;
+    }
+    .arc-seg {
+      fill: none;
+      stroke: var(--accent);
+      stroke-linecap: round;
+    }
+    .arc-dot { fill: var(--accent); }
+
+    /* 12: Three concentric circles with arc segments */
+    .logo12 .ring1 { animation: spin 30s linear infinite; transform-origin: 200px 200px; }
+    .logo12 .ring2 { animation: spin 40s linear infinite reverse; transform-origin: 200px 200px; }
+    .logo12 .ring3 { animation: spin 25s linear infinite; transform-origin: 200px 200px; }
+
+    /* 13: Tighter arcs, different stroke widths */
+    .logo13 .ring1 { animation: spin 22s linear infinite; transform-origin: 200px 200px; }
+    .logo13 .ring2 { animation: spin 32s linear infinite reverse; transform-origin: 200px 200px; }
+    .logo13 .ring3 { animation: spin 18s linear infinite; transform-origin: 200px 200px; }
+
+    /* 14: Wide elliptical arcs */
+    .logo14 .ring1 { animation: spin 26s linear infinite reverse; transform-origin: 200px 200px; }
+    .logo14 .ring2 { animation: spin 35s linear infinite; transform-origin: 200px 200px; }
+    .logo14 .ring3 { animation: spin 20s linear infinite reverse; transform-origin: 200px 200px; }
+
+    /* ═══════════════════════════════════════
+       15–19. SITE FONT + FLOWING ORBIT LINES
+    ═══════════════════════════════════════ */
+    .logo15, .logo16, .logo17, .logo18, .logo19 {
+      text-align: center;
+      position: relative;
+    }
+    .logo15 .title, .logo16 .title, .logo17 .title, .logo18 .title, .logo19 .title {
+      font-family: var(--mono);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+    }
+    .logo15 .sub, .logo16 .sub, .logo17 .sub, .logo18 .sub, .logo19 .sub {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .logo15 svg.flow, .logo16 svg.flow, .logo17 svg.flow, .logo18 svg.flow, .logo19 svg.flow {
+      display: block;
+      margin: 14px auto 0;
+      overflow: visible;
+    }
+    .flow-line {
+      fill: none;
+      stroke: var(--accent);
+      stroke-linecap: round;
+    }
+
+    /* 15: Two sine waves, opposite phase */
+    .logo15 svg.flow { width: 280px; height: 30px; }
+    .logo15 .fl1 { stroke-width: 2; stroke-dasharray: 500; animation: flowRight 4s linear infinite; opacity: 0.6; }
+    .logo15 .fl2 { stroke-width: 1.5; stroke-dasharray: 500; animation: flowRight 5s linear infinite reverse; opacity: 0.25; }
+    @keyframes flowRight { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -500; } }
+
+    /* 16: Three layered orbital curves */
+    .logo16 svg.flow { width: 320px; height: 40px; }
+    .logo16 .fl1 { stroke-width: 2; stroke-dasharray: 40 160; animation: flowRight 6s linear infinite; opacity: 0.6; }
+    .logo16 .fl2 { stroke-width: 1.5; stroke-dasharray: 60 140; animation: flowRight 8s linear infinite reverse; opacity: 0.35; }
+    .logo16 .fl3 { stroke-width: 1; stroke-dasharray: 30 170; animation: flowRight 5s linear infinite; opacity: 0.2; }
+
+    /* 17: Single sweeping arc with dot */
+    .logo17 svg.flow { width: 300px; height: 36px; }
+    .logo17 .fl1 { stroke-width: 2; stroke-dasharray: 80 420; animation: flowRight 5s linear infinite; opacity: 0.55; }
+    .logo17 .fl2 { stroke-width: 1.5; stroke-dasharray: 50 450; animation: flowRight 7s linear infinite reverse; opacity: 0.2; }
+    .logo17 .dot1 { fill: var(--accent); animation: dotPulse 5s ease-in-out infinite; }
+    @keyframes dotPulse { 0%, 100% { opacity: 0.7; r: 3; } 50% { opacity: 0.3; r: 2; } }
+
+    /* 18: Two intertwining figure-8 orbits */
+    .logo18 svg.flow { width: 300px; height: 44px; }
+    .logo18 .fl1 { stroke-width: 2; stroke-dasharray: 600; animation: flowRight 5s linear infinite; opacity: 0.5; }
+    .logo18 .fl2 { stroke-width: 1.5; stroke-dasharray: 600; animation: flowRight 6s linear infinite reverse; opacity: 0.25; }
+
+    /* 19: Converging/diverging double orbit */
+    .logo19 svg.flow { width: 320px; height: 36px; }
+    .logo19 .fl1 { stroke-width: 2; stroke-dasharray: 60 120; animation: flowRight 5s linear infinite; opacity: 0.5; }
+    .logo19 .fl2 { stroke-width: 2; stroke-dasharray: 60 120; animation: flowRight 5s linear infinite; opacity: 0.3; animation-delay: -2.5s; }
+    .logo19 .fl3 { stroke-width: 1; stroke-dasharray: 40 160; animation: flowRight 7s linear infinite reverse; opacity: 0.15; }
+
+    /* ═══════════════════════════════════════
+       COMPACT VARIANTS — header-sized
+    ═══════════════════════════════════════ */
+    .experiment__canvas.compact {
+      height: 200px;
+    }
+
+    /* ── 6. Hollow + single orbit ring ── */
+    .logo6 {
+      position: relative;
+      text-align: center;
+    }
+    .logo6 .title {
+      font-family: var(--sans);
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--dark);
+      position: relative;
+      z-index: 2;
+    }
+    .logo6 .sub {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+      position: relative;
+      z-index: 2;
+    }
+    .logo6 .orbit-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 200px; height: 200px;
+      margin: -100px 0 0 -100px;
+      border-radius: 50%;
+      border: 1px dashed var(--accent);
+      opacity: 0.25;
+      animation: spin 30s linear infinite;
+    }
+    .logo6 .orbit-ring .orbit-dot {
+      position: absolute;
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      top: -2.5px; left: 50%; margin-left: -2.5px;
+    }
+
+    /* ── 7. Hollow wide + breathing arc ── */
+    .logo7 {
+      position: relative;
+      text-align: center;
+    }
+    .logo7 .title {
+      font-family: var(--sans);
+      font-size: 2.6rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      color: transparent;
+      -webkit-text-stroke: 1.2px var(--dark);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+    .logo7 .sub {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 4px;
+      position: relative;
+      z-index: 2;
+    }
+    .logo7 svg {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 300px; height: 300px;
+      margin: -150px 0 0 -150px;
+      animation: spinSlow 25s linear infinite;
+    }
+    .logo7 .arc {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-dasharray: 80 200;
+      animation: breathe 4s ease-in-out infinite;
+    }
+    .logo7 .arc2 {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-dasharray: 50 250;
+      opacity: 0.4;
+      animation: breathe 5s ease-in-out infinite 1s;
+    }
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+
+    /* ── 8. Hollow + scattered dots ── */
+    .logo8 {
+      position: relative;
+      text-align: center;
+    }
+    .logo8 .title {
+      font-family: var(--sans);
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--dark);
+      position: relative;
+      z-index: 2;
+    }
+    .logo8 .sub {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #092544aa;
+      margin-top: 4px;
+      position: relative;
+      z-index: 2;
+    }
+    .logo8 .dots {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+    }
+    .logo8 .dot {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: drift linear infinite;
+    }
+    @keyframes drift {
+      0% { transform: translate(0, 0); opacity: 0.6; }
+      50% { opacity: 0.2; }
+      100% { transform: translate(var(--tx), var(--ty)); opacity: 0.6; }
+    }
+
+    /* ── 9. Outline + double ellipse orbits ── */
+    .logo9 {
+      position: relative;
+      text-align: center;
+    }
+    .logo9 .title {
+      font-family: var(--sans);
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--dark);
+      position: relative;
+      z-index: 2;
+    }
+    .logo9 .sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+      text-align: right;
+      position: relative;
+      z-index: 2;
+    }
+    .logo9 .ellipse-orbit {
+      position: absolute;
+      top: 50%; left: 50%;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+    }
+    .logo9 .ellipse-orbit:nth-child(1) {
+      width: 280px; height: 120px;
+      margin: -60px 0 0 -140px;
+      transform: rotate(-15deg);
+      animation: spin 35s linear infinite;
+      opacity: 0.2;
+    }
+    .logo9 .ellipse-orbit:nth-child(2) {
+      width: 260px; height: 100px;
+      margin: -50px 0 0 -130px;
+      transform: rotate(20deg);
+      animation: spin 28s linear infinite reverse;
+      opacity: 0.15;
+    }
+    .logo9 .ellipse-orbit:nth-child(1) .orbit-dot {
+      position: absolute;
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      top: -2.5px; left: 30%;
+    }
+    .logo9 .ellipse-orbit:nth-child(2) .orbit-dot {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      bottom: -2px; right: 20%;
+    }
+
+    /* ── 10. Hollow + accent slash + gentle float ── */
+    .logo10 {
+      text-align: center;
+      animation: gentleFloat 6s ease-in-out infinite;
+    }
+    .logo10 .title-wrap {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0;
+    }
+    .logo10 .s {
+      font-family: var(--sans);
+      font-size: 3.4rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--dark);
+    }
+    .logo10 .slash {
+      font-family: var(--sans);
+      font-size: 3.4rem;
+      font-weight: 300;
+      color: var(--accent);
+      margin: 0 -2px;
+      animation: slashPulse 3s ease-in-out infinite;
+    }
+    .logo10 .r {
+      font-family: var(--sans);
+      font-size: 3.4rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--dark);
+    }
+    .logo10 .full {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #092544aa;
+      margin-top: 6px;
+    }
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes slashPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── 11. Compact hollow with rotating dot trail ── */
+    .logo11 {
+      position: relative;
+      text-align: center;
+      width: 350px;
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo11 .title {
+      font-family: var(--sans);
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: transparent;
+      -webkit-text-stroke: 1.3px var(--dark);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+    .logo11 .sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+      position: relative;
+      z-index: 2;
+    }
+    .logo11 canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <h1>Logo animation experiments</h1>
+    <p>5 concepts for the Solaris Research header. Pick one or mix elements.</p>
+
+    <!-- ── 1. HOLLOW OUTLINE ── -->
+    <div class="experiment">
+      <div class="experiment__label">1 — Hollow outline with breathing pulse</div>
+      <div class="experiment__canvas">
+        <div class="logo1">
+          <div class="title">SOLARIS</div>
+          <div class="sub">Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2. ORBITAL RINGS ── -->
+    <div class="experiment">
+      <div class="experiment__label">2 — Orbital rings (dark)</div>
+      <div class="experiment__canvas dark">
+        <div class="logo2-wrap">
+          <div class="orbit"><span class="orbit-dot"></span></div>
+          <div class="orbit"><span class="orbit-dot"></span></div>
+          <div class="orbit"><span class="orbit-dot"></span></div>
+          <div class="logo2-center">
+            <div class="title">SOLARIS</div>
+            <div class="sub">Research</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 3. WAVE UNDERLINE ── -->
+    <div class="experiment">
+      <div class="experiment__label">3 — Flowing wave underline</div>
+      <div class="experiment__canvas">
+        <div class="logo3">
+          <div class="title">Solaris</div>
+          <div class="sub">Research</div>
+          <svg viewBox="0 0 320 24" preserveAspectRatio="none">
+            <path class="wave-line" d="M-40,12 C-20,2 0,22 20,12 C40,2 60,22 80,12 C100,2 120,22 140,12 C160,2 180,22 200,12 C220,2 240,22 260,12 C280,2 300,22 320,12 C340,2 360,22 380,12 C400,2 420,22 440,12 C460,2 480,22 500,12 C520,2 540,22 560,12 C580,2 600,22 620,12 C640,2 660,22 680,12" />
+            <path class="wave-line2" d="M-40,12 C-20,2 0,22 20,12 C40,2 60,22 80,12 C100,2 120,22 140,12 C160,2 180,22 200,12 C220,2 240,22 260,12 C280,2 300,22 320,12 C340,2 360,22 380,12 C400,2 420,22 440,12 C460,2 480,22 500,12 C520,2 540,22 560,12 C580,2 600,22 620,12 C640,2 660,22 680,12" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 4. PARTICLE FIELD ── -->
+    <div class="experiment">
+      <div class="experiment__label">4 — Rising particle field</div>
+      <div class="experiment__canvas" id="particle-canvas">
+        <div class="logo4-wrap">
+          <div class="logo4-text">
+            <div class="title">Solaris</div>
+            <div class="sub">Research</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 5. CONCENTRIC MORPH ── -->
+    <div class="experiment">
+      <div class="experiment__label">5 — Concentric breathing rings</div>
+      <div class="experiment__canvas">
+        <div class="logo5-wrap">
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="logo5-center">
+            <div class="title">SOLARIS</div>
+            <div class="sub">Research</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 12. Orbital rings — three full circles, different speeds ── -->
+    <div class="experiment">
+      <div class="experiment__label">12 — Hollow text + three orbital rings</div>
+      <div class="experiment__canvas">
+        <div class="logo12">
+          <svg class="arcs" viewBox="0 0 400 400">
+            <g class="ring1">
+              <circle class="arc-seg" cx="200" cy="200" r="170" stroke-width="1.5" opacity="0.4" />
+              <circle class="arc-dot" cx="200" cy="30" r="3.5" opacity="0.7" />
+            </g>
+            <g class="ring2">
+              <circle class="arc-seg" cx="200" cy="200" r="145" stroke-width="1.5" opacity="0.25" />
+              <circle class="arc-dot" cx="345" cy="200" r="3" opacity="0.5" />
+            </g>
+            <g class="ring3">
+              <circle class="arc-seg" cx="200" cy="200" r="120" stroke-width="1.5" opacity="0.18" />
+              <circle class="arc-dot" cx="200" cy="320" r="2.5" opacity="0.4" />
+            </g>
+          </svg>
+          <div class="text-block">
+            <span class="title">SOLARIS</span>
+            <span class="sub">Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 13. Orbital rings — partial arcs (3/4 circles) ── -->
+    <div class="experiment">
+      <div class="experiment__label">13 — Hollow text + partial orbital arcs (3/4 rings)</div>
+      <div class="experiment__canvas">
+        <div class="logo13">
+          <svg class="arcs" viewBox="0 0 400 400">
+            <g class="ring1">
+              <path class="arc-seg" d="M 200,25 A 175,175 0 1 1 25,200" stroke-width="1.5" opacity="0.45" />
+              <circle class="arc-dot" cx="200" cy="25" r="3.5" opacity="0.7" />
+              <circle class="arc-dot" cx="25" cy="200" r="2.5" opacity="0.4" />
+            </g>
+            <g class="ring2">
+              <path class="arc-seg" d="M 350,120 A 150,150 0 1 1 120,50" stroke-width="1.5" opacity="0.3" />
+              <circle class="arc-dot" cx="350" cy="120" r="3" opacity="0.5" />
+              <circle class="arc-dot" cx="120" cy="50" r="2" opacity="0.3" />
+            </g>
+            <g class="ring3">
+              <path class="arc-seg" d="M 80,320 A 125,125 0 1 1 320,280" stroke-width="1.5" opacity="0.2" />
+              <circle class="arc-dot" cx="80" cy="320" r="2.5" opacity="0.4" />
+              <circle class="arc-dot" cx="320" cy="280" r="2" opacity="0.3" />
+            </g>
+          </svg>
+          <div class="text-block">
+            <span class="title">SOLARIS</span>
+            <span class="sub">Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 14. Orbital rings — mixed full + half arcs ── -->
+    <div class="experiment">
+      <div class="experiment__label">14 — Hollow text + mixed orbital rings &amp; half arcs</div>
+      <div class="experiment__canvas">
+        <div class="logo14">
+          <svg class="arcs" viewBox="0 0 400 400">
+            <g class="ring1">
+              <circle class="arc-seg" cx="200" cy="200" r="180" stroke-width="1" opacity="0.15" />
+              <path class="arc-seg" d="M 200,20 A 180,180 0 0 1 380,200" stroke-width="2" opacity="0.45" />
+              <circle class="arc-dot" cx="380" cy="200" r="3.5" opacity="0.7" />
+            </g>
+            <g class="ring2">
+              <circle class="arc-seg" cx="200" cy="200" r="150" stroke-width="1" opacity="0.12" />
+              <path class="arc-seg" d="M 350,200 A 150,150 0 0 1 120,340" stroke-width="2" opacity="0.35" />
+              <circle class="arc-dot" cx="120" cy="340" r="3" opacity="0.5" />
+            </g>
+            <g class="ring3">
+              <circle class="arc-seg" cx="200" cy="200" r="115" stroke-width="1" opacity="0.1" />
+              <path class="arc-seg" d="M 85,200 A 115,115 0 0 1 250,90" stroke-width="2" opacity="0.28" />
+              <circle class="arc-dot" cx="250" cy="90" r="2.5" opacity="0.4" />
+            </g>
+          </svg>
+          <div class="text-block">
+            <span class="title">SOLARIS</span>
+            <span class="sub">Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         15–19: SITE FONT + FLOWING ORBIT LINES
+    ═══════════════════════════════════════════ -->
+
+    <!-- ── 15. Two sine orbits, opposite directions ── -->
+    <div class="experiment">
+      <div class="experiment__label">15 — Two flowing sine orbits</div>
+      <div class="experiment__canvas compact">
+        <div class="logo15">
+          <div class="title">Solaris Research</div>
+          <div class="sub">ETH Z&uuml;rich</div>
+          <svg class="flow" viewBox="0 0 280 30">
+            <path class="flow-line fl1" d="M-40,15 C-20,3 0,27 20,15 C40,3 60,27 80,15 C100,3 120,27 140,15 C160,3 180,27 200,15 C220,3 240,27 260,15 C280,3 300,27 320,15 C340,3 360,27 380,15 C400,3 420,27 440,15 C460,3 480,27 500,15" />
+            <path class="flow-line fl2" d="M-40,15 C-20,27 0,3 20,15 C40,27 60,3 80,15 C100,27 120,3 140,15 C160,27 180,3 200,15 C220,27 240,3 260,15 C280,27 300,3 320,15 C340,27 360,3 380,15 C400,27 420,3 440,15 C460,27 480,3 500,15" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 16. Three layered orbital curves ── -->
+    <div class="experiment">
+      <div class="experiment__label">16 — Three layered orbit fragments</div>
+      <div class="experiment__canvas compact">
+        <div class="logo16">
+          <div class="title">Solaris Research</div>
+          <div class="sub">ETH Z&uuml;rich</div>
+          <svg class="flow" viewBox="0 0 320 40">
+            <path class="flow-line fl1" d="M-40,20 C-10,5 20,35 50,20 C80,5 110,35 140,20 C170,5 200,35 230,20 C260,5 290,35 320,20 C350,5 380,35 410,20 C440,5 470,35 500,20 C530,5 560,35 590,20" />
+            <path class="flow-line fl2" d="M-40,22 C0,8 40,36 80,22 C120,8 160,36 200,22 C240,8 280,36 320,22 C360,8 400,36 440,22 C480,8 520,36 560,22" />
+            <path class="flow-line fl3" d="M-40,18 C10,4 60,32 110,18 C160,4 210,32 260,18 C310,4 360,32 410,18 C460,4 510,32 560,18" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 17. Single sweeping arc with floating dot ── -->
+    <div class="experiment">
+      <div class="experiment__label">17 — Sweeping arc with accent dot</div>
+      <div class="experiment__canvas compact">
+        <div class="logo17">
+          <div class="title">Solaris Research</div>
+          <div class="sub">ETH Z&uuml;rich</div>
+          <svg class="flow" viewBox="0 0 300 36">
+            <path class="flow-line fl1" d="M-40,18 C-10,4 20,32 50,18 C80,4 110,32 140,18 C170,4 200,32 230,18 C260,4 290,32 320,18 C350,4 380,32 410,18 C440,4 470,32 500,18" />
+            <path class="flow-line fl2" d="M-40,18 C0,32 40,4 80,18 C120,32 160,4 200,18 C240,32 280,4 320,18 C360,32 400,4 440,18 C480,32 520,4 560,18" />
+            <circle class="dot1" cx="150" cy="18" r="3" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 18. Intertwining figure-8 orbits ── -->
+    <div class="experiment">
+      <div class="experiment__label">18 — Intertwining figure-8 orbits</div>
+      <div class="experiment__canvas compact">
+        <div class="logo18">
+          <div class="title">Solaris Research</div>
+          <div class="sub">ETH Z&uuml;rich</div>
+          <svg class="flow" viewBox="0 0 300 44">
+            <path class="flow-line fl1" d="M-40,22 C-10,2 20,42 50,22 C80,2 110,42 140,22 C170,2 200,42 230,22 C260,2 290,42 320,22 C350,2 380,42 410,22 C440,2 470,42 500,22" />
+            <path class="flow-line fl2" d="M-40,22 C-10,42 20,2 50,22 C80,42 110,2 140,22 C170,42 200,2 230,22 C260,42 290,2 320,22 C350,42 380,2 410,22 C440,42 470,2 500,22" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 19. Double orbit with staggered fragments ── -->
+    <div class="experiment">
+      <div class="experiment__label">19 — Double orbit, staggered fragments</div>
+      <div class="experiment__canvas compact">
+        <div class="logo19">
+          <div class="title">Solaris Research</div>
+          <div class="sub">ETH Z&uuml;rich</div>
+          <svg class="flow" viewBox="0 0 320 36">
+            <path class="flow-line fl1" d="M-40,18 C-10,4 30,32 60,18 C90,4 120,32 150,18 C180,4 210,32 240,18 C270,4 300,32 330,18 C360,4 390,32 420,18 C450,4 480,32 510,18" />
+            <path class="flow-line fl2" d="M-40,18 C-10,4 30,32 60,18 C90,4 120,32 150,18 C180,4 210,32 240,18 C270,4 300,32 330,18 C360,4 390,32 420,18 C450,4 480,32 510,18" />
+            <path class="flow-line fl3" d="M-40,18 C0,32 40,4 80,18 C120,32 160,4 200,18 C240,32 280,4 320,18 C360,32 400,4 440,18 C480,32 520,4 560,18" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         COMPACT COMBOS (1+2 mixes, site bg, header-sized)
+    ═══════════════════════════════════════════ -->
+
+    <!-- ── 6. Hollow text + single orbit ── -->
+    <div class="experiment">
+      <div class="experiment__label">6 — Hollow outline + single orbit ring (compact)</div>
+      <div class="experiment__canvas compact">
+        <div class="logo6">
+          <div class="orbit-ring"><span class="orbit-dot"></span></div>
+          <div class="title">SOLARIS</div>
+          <div class="sub">Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 7. Light hollow + breathing arcs ── -->
+    <div class="experiment">
+      <div class="experiment__label">7 — Thin hollow + rotating arc fragments</div>
+      <div class="experiment__canvas compact">
+        <div class="logo7">
+          <svg viewBox="0 0 300 300">
+            <circle class="arc" cx="150" cy="150" r="130" />
+            <circle class="arc2" cx="150" cy="150" r="140" />
+          </svg>
+          <div class="title">Solaris</div>
+          <div class="sub">Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 8. Hollow + scattered floating dots ── -->
+    <div class="experiment">
+      <div class="experiment__label">8 — Hollow outline + drifting dots</div>
+      <div class="experiment__canvas compact">
+        <div class="logo8" id="logo8">
+          <div class="dots" id="dots8"></div>
+          <div class="title">SOLARIS</div>
+          <div class="sub">Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 9. Outline + elliptical orbits ── -->
+    <div class="experiment">
+      <div class="experiment__label">9 — Hollow outline + elliptical orbits</div>
+      <div class="experiment__canvas compact">
+        <div class="logo9">
+          <div class="ellipse-orbit"><span class="orbit-dot"></span></div>
+          <div class="ellipse-orbit"><span class="orbit-dot"></span></div>
+          <div class="title">SOLARIS</div>
+          <div class="sub">Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 10. S/R monogram hollow + slash pulse ── -->
+    <div class="experiment">
+      <div class="experiment__label">10 — Hollow S/R monogram with floating pulse</div>
+      <div class="experiment__canvas compact">
+        <div class="logo10">
+          <div class="title-wrap">
+            <span class="s">SOLARIS</span>
+            <span class="slash">/</span>
+            <span class="r">R</span>
+          </div>
+          <div class="full">Solaris Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 11. Compact hollow + canvas dot trail ── -->
+    <div class="experiment">
+      <div class="experiment__label">11 — Hollow text + orbiting dot trail (canvas)</div>
+      <div class="experiment__canvas compact">
+        <div class="logo11">
+          <canvas id="trail-canvas"></canvas>
+          <div class="title">Solaris</div>
+          <div class="sub">Research</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Dot trail canvas for #11
+    (function() {
+      var c = document.getElementById('trail-canvas');
+      var wrap = c.parentElement;
+      c.width = wrap.offsetWidth * 2;
+      c.height = wrap.offsetHeight * 2;
+      c.style.width = wrap.offsetWidth + 'px';
+      c.style.height = wrap.offsetHeight + 'px';
+      var ctx = c.getContext('2d');
+      ctx.scale(2, 2);
+      var w = wrap.offsetWidth, h = wrap.offsetHeight;
+      var cx = w / 2, cy = h / 2;
+      var dots = [];
+      for (var i = 0; i < 8; i++) {
+        dots.push({
+          angle: (Math.PI * 2 / 8) * i,
+          rx: 140 + Math.random() * 20,
+          ry: 50 + Math.random() * 10,
+          speed: 0.003 + Math.random() * 0.002,
+          size: 2 + Math.random() * 2,
+          trail: []
+        });
+      }
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        dots.forEach(function(d) {
+          d.angle += d.speed;
+          var x = cx + Math.cos(d.angle) * d.rx;
+          var y = cy + Math.sin(d.angle) * d.ry;
+          d.trail.push({ x: x, y: y });
+          if (d.trail.length > 20) d.trail.shift();
+          d.trail.forEach(function(p, i) {
+            var alpha = (i / d.trail.length) * 0.5;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, d.size * (i / d.trail.length), 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(223, 78, 60, ' + alpha + ')';
+            ctx.fill();
+          });
+          ctx.beginPath();
+          ctx.arc(x, y, d.size, 0, Math.PI * 2);
+          ctx.fillStyle = '#df4e3c';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // Scattered dots for #8
+    (function() {
+      var container = document.getElementById('dots8');
+      for (var i = 0; i < 12; i++) {
+        var dot = document.createElement('div');
+        dot.className = 'dot';
+        var size = 2 + Math.random() * 4;
+        var x = 10 + Math.random() * 80;
+        var y = 10 + Math.random() * 80;
+        var tx = (Math.random() - 0.5) * 30;
+        var ty = (Math.random() - 0.5) * 30;
+        var dur = 4 + Math.random() * 4;
+        dot.style.cssText =
+          'width:' + size + 'px;height:' + size + 'px;' +
+          'left:' + x + '%;top:' + y + '%;' +
+          '--tx:' + tx + 'px;--ty:' + ty + 'px;' +
+          'animation-duration:' + dur + 's;' +
+          'animation-delay:' + (Math.random() * 3) + 's;';
+        container.appendChild(dot);
+      }
+    })();
+
+    // Particle field generator for #4
+    var canvas = document.getElementById('particle-canvas');
+    var colors = ['#df4e3c', '#092544', '#09254466', '#df4e3c88'];
+    function spawnParticle() {
+      var p = document.createElement('div');
+      p.className = 'particle';
+      var size = Math.random() * 4 + 2;
+      var x = Math.random() * 100;
+      var dur = Math.random() * 6 + 4;
+      var delay = Math.random() * 4;
+      var dx = (Math.random() - 0.5) * 80;
+      p.style.cssText =
+        'width:' + size + 'px;height:' + size + 'px;' +
+        'left:' + x + '%;bottom:-10px;' +
+        'background:' + colors[Math.floor(Math.random() * colors.length)] + ';' +
+        '--dx:' + dx + 'px;' +
+        'animation-duration:' + dur + 's;' +
+        'animation-delay:' + delay + 's;';
+      canvas.querySelector('.logo4-wrap').appendChild(p);
+      setTimeout(function() { p.remove(); }, (dur + delay) * 1000);
+    }
+    for (var i = 0; i < 30; i++) spawnParticle();
+    setInterval(function() { spawnParticle(); }, 400);
+  </script>
+</body>
+</html>

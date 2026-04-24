@@ -48,6 +48,7 @@
         line-height: 1.7;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
       }
 
       .page {
@@ -397,6 +398,56 @@
         }
       }
 
+      /* ── Floating decorations (dots + orbits) ── */
+      .bg-decor {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .bg-decor .decor-dot {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0;
+        animation: decorDrift var(--drift-dur, 60s) linear forwards;
+      }
+
+      .bg-decor .decor-orbit {
+        position: absolute;
+        opacity: 0;
+        animation: decorDrift var(--drift-dur, 60s) linear forwards;
+      }
+
+      .bg-decor .orbit-ring {
+        position: absolute;
+        top: 50%; left: 50%;
+        border-radius: 50%;
+        border-style: solid;
+        transform-origin: center center;
+        animation: orbitSpin linear infinite;
+      }
+
+      .bg-decor .ring-dot {
+        position: absolute;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      @keyframes decorDrift {
+        0%   { opacity: 0; transform: translateY(0); }
+        5%   { opacity: var(--d-opacity, 0.2); }
+        90%  { opacity: var(--d-opacity, 0.2); }
+        100% { opacity: 0; transform: translateY(-30vh); }
+      }
+
+      @keyframes orbitSpin {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+
       /* ── Responsive ── */
       @media (max-width: 600px) {
         html {
@@ -405,6 +456,10 @@
 
         .header {
           padding-top: 56px;
+        }
+
+        .bg-decor {
+          display: none;
         }
 
         .header__name {
@@ -442,6 +497,7 @@
     <button onclick="check()" style="padding:10px;font-size:16px;">Enter</button>
   </div>
 </div>
+    <div class="bg-decor" id="bg-decor"></div>
     <div class="page">
 
       <header class="header">
@@ -637,6 +693,93 @@
       alert("Wrong password");
     }
   }
+
+  // Scattered dots + slowly spinning orbits — appear after 5s
+  setTimeout(function() {
+    var c = document.getElementById('bg-decor');
+    if (!c) return;
+
+    // Decorative dots
+    var dots = [
+      { x: 3,  y: 5,  s: 6,  color: '#df4e3c', op: 0.30, delay: 0,   dur: 70 },
+      { x: 94, y: 3,  s: 5,  color: '#092544', op: 0.20, delay: 0.3, dur: 65 },
+      { x: 7,  y: 25, s: 4,  color: '#092544', op: 0.25, delay: 0.6, dur: 80 },
+      { x: 96, y: 22, s: 7,  color: '#df4e3c', op: 0.28, delay: 0.2, dur: 55 },
+      { x: 2,  y: 48, s: 5,  color: '#df4e3c', op: 0.22, delay: 0.8, dur: 75 },
+      { x: 91, y: 50, s: 4,  color: '#092544', op: 0.30, delay: 0.5, dur: 60 },
+      { x: 11, y: 70, s: 3,  color: '#092544', op: 0.18, delay: 1.0, dur: 85 },
+      { x: 89, y: 75, s: 6,  color: '#df4e3c', op: 0.24, delay: 0.7, dur: 70 },
+      { x: 5,  y: 88, s: 4,  color: '#df4e3c', op: 0.16, delay: 1.2, dur: 90 },
+      { x: 97, y: 42, s: 3,  color: '#092544', op: 0.26, delay: 0.4, dur: 65 },
+      { x: 15, y: 12, s: 5,  color: '#df4e3c', op: 0.18, delay: 0.9, dur: 75 },
+      { x: 85, y: 88, s: 4,  color: '#092544', op: 0.20, delay: 1.1, dur: 80 },
+    ];
+
+    dots.forEach(function(d) {
+      var el = document.createElement('div');
+      el.className = 'decor-dot';
+      el.style.cssText =
+        'left:' + d.x + '%;top:' + d.y + '%;' +
+        'width:' + d.s + 'px;height:' + d.s + 'px;' +
+        'background:' + d.color + ';' +
+        '--d-opacity:' + d.op + ';' +
+        '--drift-dur:' + d.dur + 's;' +
+        'animation-delay:' + d.delay + 's;';
+      c.appendChild(el);
+    });
+
+    // Orbit systems — more of them, less transparent
+    var orbits = [
+      { x: 5,  y: 10, size: 30, color: '#df4e3c', op: 0.18, rings: 2, delay: 0.4, dur: 65 },
+      { x: 90, y: 8,  size: 24, color: '#092544', op: 0.15, rings: 2, delay: 0.2, dur: 70 },
+      { x: 3,  y: 30, size: 35, color: '#092544', op: 0.16, rings: 3, delay: 0.8, dur: 80 },
+      { x: 92, y: 28, size: 28, color: '#df4e3c', op: 0.14, rings: 2, delay: 0.6, dur: 60 },
+      { x: 7,  y: 50, size: 22, color: '#df4e3c', op: 0.17, rings: 2, delay: 1.0, dur: 75 },
+      { x: 88, y: 52, size: 38, color: '#092544', op: 0.13, rings: 3, delay: 0.5, dur: 85 },
+      { x: 4,  y: 72, size: 26, color: '#092544', op: 0.15, rings: 2, delay: 1.2, dur: 70 },
+      { x: 94, y: 68, size: 32, color: '#df4e3c', op: 0.12, rings: 2, delay: 0.9, dur: 60 },
+      { x: 14, y: 42, size: 20, color: '#df4e3c', op: 0.14, rings: 2, delay: 0.7, dur: 55 },
+      { x: 83, y: 85, size: 26, color: '#092544', op: 0.16, rings: 2, delay: 1.1, dur: 75 },
+    ];
+
+    orbits.forEach(function(o) {
+      var sys = document.createElement('div');
+      sys.className = 'decor-orbit';
+      sys.style.cssText =
+        'left:' + o.x + '%;top:' + o.y + '%;' +
+        'width:' + (o.size * 2.5) + 'px;height:' + (o.size * 2.5) + 'px;' +
+        '--d-opacity:' + o.op + ';' +
+        '--drift-dur:' + o.dur + 's;' +
+        'color:' + o.color + ';' +
+        'animation-delay:' + o.delay + 's;';
+
+      for (var i = 0; i < o.rings; i++) {
+        var ring = document.createElement('div');
+        ring.className = 'orbit-ring';
+        var r = o.size * (0.4 + i * 0.32);
+        var speed = 20 + Math.random() * 25;
+        var dir = i % 2 === 0 ? 'normal' : 'reverse';
+        ring.style.cssText =
+          'width:' + (r * 2) + 'px;height:' + (r * 2) + 'px;' +
+          'border-width:' + (1 + Math.random() * 0.5) + 'px;' +
+          'border-color:' + o.color + ';' +
+          'opacity:' + (0.5 + Math.random() * 0.3) + ';' +
+          'animation-duration:' + speed + 's;' +
+          'animation-direction:' + dir + ';';
+
+        var dot = document.createElement('div');
+        dot.className = 'ring-dot';
+        var ds = 2.5 + Math.random() * 1.5;
+        dot.style.cssText =
+          'width:' + ds + 'px;height:' + ds + 'px;' +
+          'top:-' + (ds / 2) + 'px;left:50%;margin-left:-' + (ds / 2) + 'px;';
+        ring.appendChild(dot);
+
+        sys.appendChild(ring);
+      }
+      c.appendChild(sys);
+    });
+  }, 5000);
   </script>
   </body>
 </html>
