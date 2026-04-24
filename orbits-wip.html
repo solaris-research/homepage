@@ -1,0 +1,133 @@
+<!--
+  WORK IN PROGRESS: Floating orbit background animation
+  To integrate: add the CSS to index.html <style>, the #orbit-bg div after <body>,
+  and the <script> before </body>.
+-->
+
+<!-- CSS to add inside <style> -->
+<style>
+  /* ── Floating orbit background ── */
+  .orbit-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: hidden;
+  }
+
+  .orbit-bg .floating-system {
+    position: absolute;
+    animation: floatUp linear infinite;
+  }
+
+  .floating-system .orbit-track {
+    position: absolute;
+    top: 50%; left: 50%;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: inherit;
+    animation: orbitSpin linear infinite;
+  }
+
+  .floating-system .mini-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: inherit;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    8% { opacity: var(--ring-opacity); }
+    88% { opacity: var(--ring-opacity); }
+    100% { transform: translateY(-60vh); opacity: 0; }
+  }
+
+  @keyframes orbitSpin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 750px) {
+    .orbit-bg { display: none; }
+  }
+</style>
+
+<!-- HTML: add right after <body> -->
+<div class="orbit-bg" id="orbit-bg"></div>
+
+<!-- JS: add before </body> -->
+<script>
+  // Floating orbital systems on the sides
+  (function() {
+    var bg = document.getElementById('orbit-bg');
+    var colors = ['#df4e3c', '#092544'];
+
+    function spawnSystem() {
+      var sys = document.createElement('div');
+      sys.className = 'floating-system';
+
+      var side = Math.random() < 0.5;
+      var x = side ? (Math.random() * 8) : (92 + Math.random() * 8);
+      var dur = 40 + Math.random() * 40;
+      var delay = 6 + Math.random() * 10;
+      var op = 0.05 + Math.random() * 0.07;
+      var numRings = 2 + Math.floor(Math.random() * 2);
+      var baseSize = 18 + Math.random() * 28;
+      var borderWidths = [1, 1.5, 2, 2.5];
+      var color = colors[Math.floor(Math.random() * colors.length)];
+
+      var startY = 60 + Math.random() * 40;
+      sys.style.cssText =
+        'left:' + x + '%;' +
+        'top:' + startY + '%;' +
+        'width:' + (baseSize * 3) + 'px;height:' + (baseSize * 3) + 'px;' +
+        '--ring-opacity:' + op + ';' +
+        'color:' + color + ';' +
+        'border-color:' + color + ';' +
+        'animation: floatUp ' + dur + 's linear ' + delay + 's forwards;';
+
+      for (var i = 0; i < numRings; i++) {
+        var track = document.createElement('div');
+        track.className = 'orbit-track';
+        var r = baseSize * (0.5 + i * 0.3);
+        var spd = 12 + Math.random() * 20;
+        var dir = Math.random() < 0.5 ? 'reverse' : 'normal';
+        var bw = borderWidths[Math.floor(Math.random() * borderWidths.length)];
+        track.style.cssText =
+          'width:' + (r * 2) + 'px;height:' + (r * 2) + 'px;' +
+          'margin:-' + r + 'px 0 0 -' + r + 'px;' +
+          'border-width:' + bw + 'px;' +
+          'border-color:' + color + ';' +
+          'opacity:' + (0.3 + Math.random() * 0.3) + ';' +
+          'animation-duration:' + spd + 's;' +
+          'animation-direction:' + dir + ';';
+
+        var dot = document.createElement('div');
+        dot.className = 'mini-dot';
+        var ds = 2 + Math.random() * 2.5;
+        dot.style.cssText =
+          'width:' + ds + 'px;height:' + ds + 'px;' +
+          'top:-' + (ds / 2) + 'px;left:50%;margin-left:-' + (ds / 2) + 'px;' +
+          'background:' + color + ';' +
+          'opacity:' + (0.4 + Math.random() * 0.4) + ';';
+        track.appendChild(dot);
+
+        var dot2 = document.createElement('div');
+        dot2.className = 'mini-dot';
+        var ds2 = 1.5 + Math.random() * 2;
+        dot2.style.cssText =
+          'width:' + ds2 + 'px;height:' + ds2 + 'px;' +
+          'bottom:-' + (ds2 / 2) + 'px;left:50%;margin-left:-' + (ds2 / 2) + 'px;' +
+          'background:' + color + ';' +
+          'opacity:' + (0.3 + Math.random() * 0.3) + ';';
+        track.appendChild(dot2);
+
+        sys.appendChild(track);
+      }
+
+      bg.appendChild(sys);
+      setTimeout(function() { sys.remove(); }, (dur + delay) * 1000);
+    }
+
+    for (var i = 0; i < 3; i++) spawnSystem();
+    setInterval(spawnSystem, 12000);
+  })();
+</script>
