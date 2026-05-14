@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Protection — Solaris Research</title>
+    <meta
+      name="description"
+      content="Data protection information for the Solaris Research website."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="sr_logo.png" />
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f7f7f6;
+        --text: #092544;
+        --text-secondary: #092544cc;
+        --accent: #df4e3c;
+        --accent-hover: #c24034;
+        --border: #09254414;
+        --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 0 24px 72px;
+      }
+
+      .eth-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .eth-bar__logo {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 0;
+      }
+
+      .eth-bar__logo img {
+        display: block;
+        width: 120px;
+        height: 20px;
+      }
+
+      .eth-bar__meta {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        text-align: right;
+      }
+
+      .header {
+        padding: 72px 0 0;
+      }
+
+      .header__name {
+        font-family: var(--font-mono);
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .divider {
+        width: 40px;
+        height: 1px;
+        background: var(--border);
+        margin: 40px 0;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-secondary);
+        margin-bottom: 28px;
+      }
+
+      .content p,
+      .content li {
+        font-size: 0.95rem;
+        margin-bottom: 1em;
+      }
+
+      .content h2 {
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+        margin: 32px 0 12px;
+      }
+
+      .content a,
+      .footer-nav a,
+      .back {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .content a:hover,
+      .footer-nav a:hover,
+      .back:hover {
+        color: var(--accent-hover);
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 36px;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+      }
+
+      .footer {
+        margin-top: 64px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 600px) {
+        .eth-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .eth-bar__meta {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="eth-bar">
+        <a class="eth-bar__logo" href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer" aria-label="ETH Zurich homepage">
+          <img src="ethz-logo.svg" alt="ETH Zurich" width="120" height="20" />
+        </a>
+        <p class="eth-bar__meta">Affiliated with ETH Zurich</p>
+      </div>
+
+      <header class="header">
+        <h1 class="header__name">Solaris Research</h1>
+      </header>
+
+      <div class="divider"></div>
+
+      <main class="content">
+        <h2 class="eyebrow">Data protection</h2>
+
+        <p>
+          This page explains how the Solaris Research website processes personal
+          data. It is intended as a project-specific supplement to ETH Z&uuml;rich's
+          broader data protection information.
+        </p>
+
+        <h2>Scope</h2>
+        <p>
+          This website is an informational site for Solaris Research. It does not
+          provide user accounts or open comment areas.
+        </p>
+
+        <h2>Information you send to us</h2>
+        <p>
+          If you contact us by email or submit an external form linked from this
+          site, we receive the information you choose to provide. We use that
+          information only to respond to your enquiry, review applications or
+          coordinate collaboration requests.
+        </p>
+
+        <h2>Technical data</h2>
+        <p>
+          When you visit the site, your browser and hosting infrastructure may
+          process technical information such as IP address, browser type and access
+          time in server logs. These logs are used for delivery, security and
+          maintenance of the site.
+        </p>
+
+        <h2>Cookies and local storage</h2>
+        <p>
+          This website does not currently set advertising or analytics cookies.
+          The landing page uses browser local storage only to remember whether the
+          site access gate has already been unlocked on your device. If the site is
+          later expanded to use non-essential cookies or analytics tools, this page
+          and a cookie banner should be updated accordingly.
+        </p>
+
+        <h2>Third-party services</h2>
+        <p>
+          This site links to external services including ETH Z&uuml;rich pages,
+          Airtable forms and external researcher websites. When you open those
+          services, their own data protection notices apply.
+        </p>
+
+        <h2>Your contact</h2>
+        <p>
+          Questions about data protection on this website can be sent to
+          <a href="mailto:team@solaris-research.com">team@solaris-research.com</a>.
+          For general ETH Z&uuml;rich information, see the
+          <a href="https://ethz.ch/staffnet/en/service/legal-matters/datenschutz.html" target="_blank" rel="noopener noreferrer">ETH data protection information</a>.
+        </p>
+
+        <a class="back" href="index.html">&larr; Back to home</a>
+      </main>
+
+      <footer class="footer">
+        <nav class="footer-nav" aria-label="Site information">
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+          <a href="imprint.html">Imprint</a>
+        </nav>
+        &copy; 2026 Solaris Research, ETH Z&uuml;rich.
+      </footer>
+    </div>
+  </body>
+</html>

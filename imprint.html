@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Imprint — Solaris Research</title>
+    <meta
+      name="description"
+      content="Imprint and legal notice for Solaris Research."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="sr_logo.png" />
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f7f7f6;
+        --text: #092544;
+        --text-secondary: #092544cc;
+        --accent: #df4e3c;
+        --accent-hover: #c24034;
+        --border: #09254414;
+        --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+      }
+
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 0 24px 72px;
+      }
+
+      .eth-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .eth-bar__logo {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 0;
+      }
+
+      .eth-bar__logo img {
+        display: block;
+        width: 120px;
+        height: 20px;
+      }
+
+      .eth-bar__meta {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        text-align: right;
+      }
+
+      .header {
+        padding: 72px 0 0;
+      }
+
+      .header__name {
+        font-family: var(--font-mono);
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .divider {
+        width: 40px;
+        height: 1px;
+        background: var(--border);
+        margin: 40px 0;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-secondary);
+        margin-bottom: 28px;
+      }
+
+      .content p,
+      .content li {
+        font-size: 0.95rem;
+        margin-bottom: 1em;
+      }
+
+      .content h2 {
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+        margin: 32px 0 12px;
+      }
+
+      .content a,
+      .footer-nav a,
+      .back {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .content a:hover,
+      .footer-nav a:hover,
+      .back:hover {
+        color: var(--accent-hover);
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 36px;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+      }
+
+      .footer {
+        margin-top: 64px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 600px) {
+        .eth-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .eth-bar__meta {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="eth-bar">
+        <a class="eth-bar__logo" href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer" aria-label="ETH Zurich homepage">
+          <img src="ethz-logo.svg" alt="ETH Zurich" width="120" height="20" />
+        </a>
+        <p class="eth-bar__meta">Affiliated with ETH Zurich</p>
+      </div>
+
+      <header class="header">
+        <h1 class="header__name">Solaris Research</h1>
+      </header>
+
+      <div class="divider"></div>
+
+      <main class="content">
+        <h2 class="eyebrow">Imprint</h2>
+
+        <p>
+          Solaris Research is a research initiative affiliated with ETH Z&uuml;rich.
+          This website provides information about the initiative's research,
+          collaborators and opportunities.
+        </p>
+
+        <h2>Website operator</h2>
+        <p>
+          Solaris Research<br />
+          ETH Z&uuml;rich<br />
+          Zurich, Switzerland
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          General enquiries: <a href="mailto:team@solaris-research.com">team@solaris-research.com</a><br />
+          Website: <a href="https://solaris-research.com">solaris-research.com</a>
+        </p>
+
+        <h2>Responsible for content</h2>
+        <p>
+          Solaris Research team.<br />
+          For corrections or legal notices related to this website, please contact
+          <a href="mailto:team@solaris-research.com">team@solaris-research.com</a>.
+        </p>
+
+        <h2>Disclaimer</h2>
+        <p>
+          The contents of this website are maintained with reasonable care. No
+          guarantee is given for completeness, accuracy or timeliness. Links to
+          external websites are provided for convenience; their operators are
+          solely responsible for their content.
+        </p>
+
+        <a class="back" href="index.html">&larr; Back to home</a>
+      </main>
+
+      <footer class="footer">
+        <nav class="footer-nav" aria-label="Site information">
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+          <a href="data-protection.html">Data protection</a>
+        </nav>
+        &copy; 2026 Solaris Research, ETH Z&uuml;rich.
+      </footer>
+    </div>
+  </body>
+</html>

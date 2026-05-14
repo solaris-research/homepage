@@ -57,9 +57,38 @@
         padding: 0 24px;
       }
 
+      .eth-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .eth-bar__logo {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 0;
+      }
+
+      .eth-bar__logo img {
+        display: block;
+        width: 120px;
+        height: 20px;
+      }
+
+      .eth-bar__meta {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        text-align: right;
+      }
+
       /* ── Header ── */
       .header {
-        padding: 100px 0 0;
+        padding: 72px 0 0;
         text-align: center;
       }
 
@@ -392,6 +421,23 @@
         animation: fadeIn 0.8s ease 0.9s forwards;
       }
 
+      .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 18px;
+        margin-bottom: 10px;
+      }
+
+      .footer-nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+
+      .footer-nav a:hover {
+        color: var(--accent);
+      }
+
       /* ── Animation ── */
       @keyframes fadeIn {
         from {
@@ -460,6 +506,16 @@
           font-size: 15px;
         }
 
+        .eth-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .eth-bar__meta {
+          text-align: left;
+        }
+
         .header {
           padding-top: 56px;
         }
@@ -505,6 +561,13 @@
 </div>
     <div class="bg-decor" id="bg-decor"></div>
     <div class="page">
+
+      <div class="eth-bar">
+        <a class="eth-bar__logo" href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer" aria-label="ETH Zurich homepage">
+          <img src="ethz-logo.svg" alt="ETH Zurich" width="120" height="20" />
+        </a>
+        <p class="eth-bar__meta">Affiliated with ETH Zurich</p>
+      </div>
 
       <header class="header">
         <h1 class="header__name">Solaris Research</h1>
@@ -588,8 +651,8 @@
         <h2 class="section-heading">The team</h2>
         <div class="team-grid">
           <p class="team-collab">
-          We are a team of safety-driven AI researchers based at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a> and work closely with
-          the <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer">ETH AI Center</a>, <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">LAS group</a> (Prof. Andreas Krause),
+          We are a team of safety-driven researchers based at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a> and work closely with
+          <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer">ETH AI Center</a> (Dr. Imanol Schlag), <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">LAS group</a> (Prof. Andreas Krause),
           <a href="https://ivia.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">IVIA lab</a> (Prof. Menna El-Assady),
           <a href="https://www.spylab.ai/" target="_blank" rel="noopener noreferrer">SPY Lab</a> (Prof. Florian Tramèr) in the
           <a href="https://www.swiss-ai.org/" target="_blank" rel="noopener noreferrer">Swiss AI</a> ecosystem.
@@ -667,6 +730,11 @@
       </nav>
 
       <footer class="footer">
+        <nav class="footer-nav" aria-label="Site information">
+          <a href="contact.html">Contact</a>
+          <a href="imprint.html">Imprint</a>
+          <a href="data-protection.html">Data protection</a>
+        </nav>
         &copy; 2026 Solaris Research, ETH Z&uuml;rich.
       </footer>
     </div>

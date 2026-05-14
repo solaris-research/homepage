@@ -55,8 +55,37 @@
         padding: 0 24px;
       }
 
+      .eth-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .eth-bar__logo {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 0;
+      }
+
+      .eth-bar__logo img {
+        display: block;
+        width: 120px;
+        height: 20px;
+      }
+
+      .eth-bar__meta {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        text-align: right;
+      }
+
       .header {
-        padding: 100px 0 0;
+        padding: 72px 0 0;
       }
 
       .header__name {
@@ -141,6 +170,22 @@
         animation: fadeIn 0.8s ease 0.65s forwards;
       }
 
+      .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        margin-bottom: 10px;
+      }
+
+      .footer-nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+
+      .footer-nav a:hover {
+        color: var(--accent);
+      }
+
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -157,6 +202,16 @@
           font-size: 16px;
         }
 
+        .eth-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .eth-bar__meta {
+          text-align: left;
+        }
+
         .header {
           padding-top: 56px;
         }
@@ -169,6 +224,13 @@
   </head>
   <body>
     <div class="page">
+      <div class="eth-bar">
+        <a class="eth-bar__logo" href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer" aria-label="ETH Zurich homepage">
+          <img src="ethz-logo.svg" alt="ETH Zurich" width="120" height="20" />
+        </a>
+        <p class="eth-bar__meta">Affiliated with ETH Zurich</p>
+      </div>
+
       <header class="header">
         <h1 class="header__name">Solaris Research</h1>
       </header>
@@ -196,6 +258,11 @@
       </main>
 
       <footer class="footer">
+        <nav class="footer-nav" aria-label="Site information">
+          <a href="index.html">Home</a>
+          <a href="imprint.html">Imprint</a>
+          <a href="data-protection.html">Data protection</a>
+        </nav>
         &copy; 2026 Solaris Research, ETH Z&uuml;rich.
       </footer>
     </div>
