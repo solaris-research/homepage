@@ -582,28 +582,44 @@
       <!-- ── Mission ── -->
       <main class="body">
         <p class="intro">
-          <span class="brand">Solaris Research</span> is a technical AI safety research group by researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a>. We build the science to detect, understand and prevent failures in frontier models.
+          <span class="brand">Solaris Research</span> is a technical AI safety initiative by researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a>. We build the science to detect, understand and prevent failures in frontier models: independent, open safety science the world can rely on.
         </p>
 
         <div class="divider--full"></div>
 
         <p>
-         Frontier models are deployed in new contexts at massive scale, yet we have almost no science for how risk profiles shift as models undergo continuous fine-tuning post-release. We study this gap: tracing alignment-relevant low-dimensional structures inside models and intervening on them using principled methods such as
-          <a href="https://arxiv.org/pdf/2505.24445" target="_blank" rel="noopener noreferrer"><strong>geometric steering</strong></a>, 
-          <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>probe-based constraints</strong></a> and <strong></strong><a href="https://openreview.net/pdf?id=ukLxqA8zXj" target="_blank" rel="noopener noreferrer"></strong>differential pullback mechanisms</strong></a>.
-          </p>
-          <p>
+          Frontier models are deployed in new contexts at massive scale<sup><a href="https://epoch.ai/data/ai-companies?view=graph&tab=usage" target="_blank" rel="noopener noreferrer" title="Epoch AI — usage data on frontier AI companies">1</a></sup>, yet we have almost no science for how risk profiles shift as models undergo continuous narrow fine-tuning, or are put in harnesses, post-release. 
+          We study this gap with a concrete research bet: emergent misalignment such as deception, sycophancy and evaluation awareness leave latent low-dimensional traces inside models, allowing not only for mechanistic reversal but also scaling-law prediction from training dynamics.
+        </p>
 
-          We insist on a <a href="https://openreview.net/pdf?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>stronger evidential foundation</strong></a> than the field currently demands; too many safety claims rest on narrow benchmarks or <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>unreproducible results</strong></a>. We prioritise explicit measurement design, sufficient scale and tests for alternative explanations with intervention-based validation. The research questions are narrow; the stakes are not.
+        <p>
+          In our recent oral position paper at ICML 2026 (top 0.7%), <a href="https://openreview.net/pdf?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>Anthropomorphic Misalignment Research Needs Stronger Evidence</strong></a>, we show that many scientific claims on safety are not supported by sufficient evidence, propsing explicit evidence levels for grading how strong a claim really is. <!--We prioritise explicit measurement design, sufficient scale and tests for alternative explanations with intervention-based validation. The research questions are narrow; the stakes are not.
+        </p>
 
-  
+        <p>-->
+          Our wider work spans theory and practice: theoretical results on
+          <a href="https://drive.google.com/file/d/1JolS_i4IEV5chE6EbTCdwvyz17K8ifpj/view?usp=sharing" target="_blank" rel="noopener noreferrer"><strong>LLM safety being low-dimensional</strong></a>, practical red-teaming on
+          <a href="https://arxiv.org/pdf/2602.05746" target="_blank" rel="noopener noreferrer"><strong>prompt injection</strong></a>, 
+          <a href="https://arxiv.org/pdf/2505.24445" target="_blank" rel="noopener noreferrer"><strong>geometric polytope-</strong></a> and
+          <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>probe-based steering</strong></a>, reproducible analysis of
+          <a href="https://lukas-fluri.com/papers/safe-reward-model-optimization/" target="_blank" rel="noopener noreferrer"><strong>reward-model optimisation</strong></a> and <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>RLHF misleading humans</strong></a>, 
+          <a href="https://arxiv.org/abs/2607.18538" target="_blank" rel="noopener noreferrer"><strong>benchmarks for cryptographic schemes</strong></a>, 
+          evaluation with <a href="https://openreview.net/pdf?id=ukLxqA8zXj" target="_blank" rel="noopener noreferrer"><strong>differential pullback</strong></a>. We develop and release
+          <a href="https://github.com/understandable-machine-intelligence-lab/Quantus" target="_blank" rel="noopener noreferrer"><strong>open-source interpretability tools</strong></a> and run
+          <a href="https://apertus-claritas.org/" target="_blank" rel="noopener noreferrer"><strong>Apertus Claritas</strong></a>, the public hub for safety research on open-weight models.
+        </p>
 
-        
+        <p>
+          Frontier safety is not only a technical problem for science to solve, nor a Western preference, but a universal right, and should be treated as such. Securing it calls for technical AI governance grounded in open, neutral and reproducible research; the kind of independent work we are on a mission to do.
+        </p>
       </main>
 
       <!-- ── We work on ── -->
       <section class="work-section">
         <h2 class="section-heading">We work on</h2>
+        <p style="font-size:0.95rem;line-height:1.65;margin-bottom:20px;color:var(--text);">
+          Our research bet organises five connected directions:
+        </p>
         <ul class="work-list">
           <li>
             <strong>Misalignment science.</strong> How safety-relevant
@@ -612,18 +628,23 @@
           </li>
           <li>
             <strong>Active mechanistic interpretability.</strong> Steering
-            vectors, circuit analysis and probe-guided detection employed as intervention proactively while
-            training 
+            vectors, circuit analysis and probe-guided detection employed proactively as interventions while
+            training
           </li>
             <li>
             <strong>Open benchmarks &amp; evaluations.</strong> Tools, datasets,
-            and reproducible benchmarks on emergent misalignment so other researchers can build on top
+            and reproducible benchmarks on emergent misalignment so other researchers can build on them
 
+          </li>
+          <li>
+            <strong>Adversarial robustness &amp; security.</strong> Red-teaming,
+            prompt injection and the security properties of models under attack
+            and in deployment
           </li>
           <li>
             <strong>Harness safety.</strong> How tool calling, memory and multi-agent coordination in harness systems compound anthropomorphised misalignment risks
 
-            
+
           </li>
         </ul>
       </section>
@@ -634,7 +655,7 @@
         <ul class="news-list">
           <!--<li>
             <span class="news-date">May 2026</span>
-            <a href="https://www.linkedin.com/posts/anthropic-eth-zurich-ai-sprint-yesterday-ugcPost-7473845761894461441-gAb6/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA5-hoIBwtopyQ0XfYDdFEy2zlOvmK1gt0U" target="_blank" rel="noopener noreferrer"><strong>Anhrophic hackathon</strong></a> at the ETH AI Center.
+            <a href="https://www.linkedin.com/posts/anthropic-eth-zurich-ai-sprint-yesterday-ugcPost-7473845761894461441-gAb6/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA5-hoIBwtopyQ0XfYDdFEy2zlOvmK1gt0U" target="_blank" rel="noopener noreferrer"><strong>Anthropic hackathon</strong></a> at the ETH AI Center.
           </li>-->
           <li>
             <span class="news-date">May 2026</span>
@@ -656,7 +677,8 @@
         <h2 class="section-heading">The team</h2>
         <div class="team-grid">
           <p class="team-collab">
-          We are a self-organized group of safety-driven researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a>. We work closely with
+          We are a self-organised group of safety-driven researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a>, combining deep technical competence with institutional independence. 
+          We work closely with
           <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">LAS group</a> (Prof. Andreas Krause),
           <a href="https://ivia.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">IVIA lab</a> (Prof. Menna El-Assady),
           <a href="https://www.spylab.ai/" target="_blank" rel="noopener noreferrer">SPY Lab</a> (Prof. Florian Tramèr), <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer">ETH AI Center</a> (Dr. Imanol Schlag) in the
@@ -705,7 +727,7 @@
       <section class="opps-section">
         <h2 class="section-heading">Work with us</h2>
         <p>
-          We work with students, research labs and industry partners who share our commitment to open, evidence-based frontier safety science.
+          As frontier capability concentrates in a few labs, open models and neutral, evidence-first safety science have never mattered more.  We work with students, research labs and industry partners who share this commitment.
           </p>
           
           <ul class="opps-list">
