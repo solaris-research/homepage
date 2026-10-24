@@ -22,4 +22,4 @@ Keep entries in order of appearance on the page.
 ## Lukas Fluri
 - Role: Co-founder
 - Link: https://luk-s.github.io
-- Photo: https://luk-s.github.io/author/lukas-fluri/avatar_hu4356430692725253010.png
+- Photo: img/team/lukas-fluri.jpg
