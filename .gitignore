@@ -25,3 +25,11 @@ __pycache__/
 
 # Papers / PDFs
 papers/
+
+# Local design history (kept on disk, not pushed)
+versions_old_published/
+versions_ongoing/
+versions_misc/
+_to_delete/
+brand/
+sr_logo_mono.png

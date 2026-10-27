@@ -11,10 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="sr_logo.png" />
+    <link rel="icon" href="data:," />
     <style>
       *, *::before, *::after {
         margin: 0;
@@ -108,13 +108,13 @@
 
       .content p,
       .content li {
-        font-size: 0.95rem;
+        font-size: 0.84rem;
         margin-bottom: 1em;
       }
 
       .content h2 {
         font-family: var(--font-mono);
-        font-size: 0.95rem;
+        font-size: 0.84rem;
         margin: 32px 0 12px;
       }
 
@@ -164,9 +164,57 @@
           text-align: left;
         }
       }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+      .header__tagline { color: var(--text-secondary); font-weight: 400; opacity: 0; animation: fadeIn 0.8s ease 0.25s forwards; }
+      .header__name { color: var(--text); }
+      .header { text-align: center; }
+      /* ── Design A: Solaris ocean / Alpine relief ── */
+      :root {
+        --bg: #f7f6f2;
+        --bg-alt: #eeede8;
+        --text: #1e2d52;
+        --text-secondary: #1e2d52b8;
+        --accent: #df4e3c;
+        --accent-hover: #b93a2b;
+        --border: #3d528326;
+        --serif: "Newsreader", "Times New Roman", serif;
+      }
+      body { background: var(--bg); }
+      #field { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+      .page { position: relative; z-index: 1; }
+      .header { padding-top: 120px !important; }
+      .bg-decor { display: none; }
+      .header__eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.04em;
+        color: var(--text-secondary);
+        margin-bottom: 18px;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0s forwards;
+      }
+      .header__name { font-family: var(--serif); font-weight: 400; font-size: 3rem; letter-spacing: -0.035em; line-height: 1.05; }
+      .header__tagline { font-family: var(--font-mono); font-size: 0.88rem; font-weight: 500; letter-spacing: -0.01em; color: #1e2d5285; margin-top: 12px; }
+      .body .intro { font-family: var(--font-mono); font-size: 0.98rem; font-weight: 400; line-height: 1.65; }
+      .body .brand { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
+      .section-heading { color: var(--accent); letter-spacing: 0.16em; }
+      .team-section .team-member > a:first-child { box-shadow: 0 0 0 1px var(--border), 0 0 0 6px var(--bg), 0 0 0 7px var(--border); }
+      .field-legend {
+        position: fixed; left: 20px; bottom: 18px; z-index: 1;
+        font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.04em;
+        color: var(--text-secondary); line-height: 1.7; pointer-events: none;
+        opacity: 0; animation: fadeIn 1s ease 2.2s forwards;
+      }
+      .field-legend i { display: inline-block; width: 18px; height: 0; vertical-align: middle; margin-right: 8px; border-top: 1.5px solid var(--text); }
+      .field-legend i.b { border-top: 1px solid #2c5fa8; width: 8px; margin-right: 2px; }
+      .field-legend i.r { border-top: 1px solid #df4e3c; width: 8px; }
+      @media (max-width: 900px) { .field-legend { display: none; } }
+      @media (max-width: 600px) { .header__name { font-size: 2.3rem; } .header { padding-top: 72px !important; } }
+      .header__mark { display: block; width: 56px; height: auto; margin: 0 auto 18px; opacity: 0; animation: fadeIn 0.8s ease 0s forwards; }
     </style>
   </head>
   <body>
+    <canvas id="field" aria-hidden="true"></canvas>
     <div class="page">
       <!--
       <div class="eth-bar">
@@ -178,7 +226,10 @@
       -->
 
       <header class="header">
-        <h1 class="header__name">Solaris Research</h1>
+        <h1 class="header__name"><a href="index.html" style="color:inherit;text-decoration:none">Solaris Research</a></h1>
+        <p class="header__tagline">
+          Frontier safety science &middot; Z&uuml;rich, Switzerland
+        </p>
       </header>
 
       <div class="divider"></div>
@@ -187,7 +238,7 @@
         <h2 class="eyebrow">Imprint</h2>
 
         <p>
-          Solaris Research is a self-organized research group by researchers at ETH Z&uuml;rich.
+          Solaris Research is a self-organised non-profit by researchers at ETH Z&uuml;rich.
           This website provides information about the initiative's research,
           collaborators and opportunities.
         </p>
@@ -200,15 +251,15 @@
 
         <h2>Contact</h2>
         <p>
-          General enquiries: <a href="mailto:team@solaris-research.com">team@solaris-research.com</a><br />
-          Website: <a href="https://solaris-research.com">solaris-research.com</a>
+          General enquiries: <a href="mailto:team@solaris-research.org">team@solaris-research.org</a><br />
+          Website: <a href="https://solaris-research.org">solaris-research.org</a>
         </p>
 
         <h2>Responsible for content</h2>
         <p>
           Solaris Research team.<br />
           For corrections or legal notices related to this website, please contact
-          <a href="mailto:team@solaris-research.com">team@solaris-research.com</a>.
+          <a href="mailto:team@solaris-research.org">team@solaris-research.org</a>.
         </p>
 
         <h2>Disclaimer</h2>
@@ -224,12 +275,93 @@
 
       <footer class="footer">
         <nav class="footer-nav" aria-label="Site information">
-          <a href="index.html">Home</a>
           <a href="contact.html">Contact</a>
+          <a href="index.html">Home</a>
           <a href="data-protection.html">Data protection</a>
         </nav>
         &copy; 2026 Solaris Research.
       </footer>
     </div>
+    <script>
+(function () {
+  var cv = document.getElementById('field');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, dpr;
+  var P = new Uint8Array(512);
+  (function () { var p = [], s = 20260; for (var i = 0; i < 256; i++) p[i] = i;
+    for (i = 255; i > 0; i--) { s = (s * 16807) % 2147483647; var j = s % (i + 1), t = p[i]; p[i] = p[j]; p[j] = t; }
+    for (i = 0; i < 512; i++) P[i] = p[i & 255]; })();
+  function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function grad(h, x, y, z) { h &= 15; var u = h < 8 ? x : y, v = h < 4 ? y : (h === 12 || h === 14 ? x : z); return ((h & 1) ? -u : u) + ((h & 2) ? -v : v); }
+  function noise(x, y, z) {
+    var X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+    x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+    var u = fade(x), v = fade(y), w = fade(z);
+    var A = P[X] + Y, AA = P[A] + Z, AB = P[A + 1] + Z, B = P[X + 1] + Y, BA = P[B] + Z, BB = P[B + 1] + Z;
+    return lerp(lerp(lerp(grad(P[AA], x, y, z), grad(P[BA], x - 1, y, z), u), lerp(grad(P[AB], x, y - 1, z), grad(P[BB], x - 1, y - 1, z), u), v),
+      lerp(lerp(grad(P[AA + 1], x, y, z - 1), grad(P[BA + 1], x - 1, y, z - 1), u), lerp(grad(P[AB + 1], x, y - 1, z - 1), grad(P[BB + 1], x - 1, y - 1, z - 1), u), v), w);
+  }
+  function fbm(x, y, z) { return noise(x, y, z) + 0.5 * noise(2 * x + 5.2, 2 * y + 1.3, 1.4 * z) + 0.25 * noise(4 * x + 9.1, 4 * y + 7.7, 2 * z); }
+  function hash(i) { var x = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); }
+  function smooth(a, b, x) { var t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+  function calm(alpha) {
+    ctx.globalCompositeOperation = 'destination-out';
+    var cx = W / 2, half = W < 760 ? W : 360, edge = 200;
+    var gr = ctx.createLinearGradient(cx - half - edge, 0, cx + half + edge, 0), f = edge / (2 * half + 2 * edge);
+    var mid = 'rgba(0,0,0,' + alpha + ')';
+    gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(f, mid); gr.addColorStop(1 - f, mid); gr.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = gr; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'source-over';
+  }
+  var V = {};
+    // B · Clearing: understanding as a clearing in a field of unknowns (stipple)
+  var pts = [];
+  V.dt = 90;
+  V.resize = function () {
+    pts = []; var sp = W < 760 ? 7 : 6, n = 0;
+    for (var y = 0; y < H + sp; y += sp) for (var x = 0; x < W + sp; x += sp) { n++; pts.push(x + (hash(n) - 0.5) * sp, y + (hash(n + 7e4) - 0.5) * sp, hash(n + 3e5)); }
+  };
+  var cache = document.createElement('canvas'), cc = cache.getContext('2d'), lastC = -1e9;
+  V.draw = function (ms, intro) {
+    ctx.clearRect(0, 0, W, H);
+    if (ms - lastC > 350 || cache.width !== Math.round(W * dpr)) { lastC = ms; cache.width = Math.round(W * dpr); cache.height = Math.round(H * dpr); cc.setTransform(dpr, 0, 0, dpr, 0, 0); paint(cc, ms); }
+    ctx.globalAlpha = intro; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(cache, 0, 0); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.globalAlpha = 1;
+  };
+  function paint(ctx, ms) { var intro = 1;
+    var z = ms * 0.00004, cx = W / 2, cy = H * 0.5, rx = Math.max(W < 760 ? W * 0.62 : 380, W * 0.3), ry = H * 0.62, s = 1 / 240;
+    ctx.fillStyle = 'rgba(61,82,131,' + (0.78 * intro).toFixed(3) + ')';
+    ctx.beginPath();
+    for (var i = 0; i < pts.length; i += 3) {
+      var x = pts[i], y = pts[i + 1], ex = (x - cx) / rx, ey = (y - cy) / ry;
+      var v = Math.sqrt(ex * ex + ey * ey) + 0.38 * fbm(x * s, y * s, z) - 0.06 * Math.sin(ms * 0.00018);
+      var p = smooth(0.92, 1.75, v);
+      if (pts[i + 2] < p * p) { var r = 0.55 + 0.75 * p; ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, 6.283); }
+    }
+    ctx.fill();
+  }
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2); W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    if (V.resize) V.resize();
+  }
+  var start = performance.now(), last = 0;
+  function loop(now) {
+    if (!reduce) requestAnimationFrame(loop);
+    if (!reduce && now - last < (V.dt || 80)) return;
+    last = now;
+    var ms = reduce ? 40000 : now - start + 20000, intro = reduce ? 1 : Math.min(1, (now - start) / 2500);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    V.draw(ms, intro);
+  }
+  resize();
+  window.addEventListener('resize', function () { resize(); if (reduce) loop(performance.now()); });
+  requestAnimationFrame(loop);
+})();
+
+  </script>
   </body>
 </html>

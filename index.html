@@ -6,15 +6,15 @@
     <title>Solaris Research</title>
     <meta
       name="description"
-      content="Solaris Research studies the safety properties of frontier AI systems. By researchers at ETH Zurich."
+      content="Solaris Research develops the science to verify safety claims about frontier AI. Led by researchers at ETH Zurich."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="sr_logo.png" />
+    <link rel="icon" href="data:," />
     <style>
       *,
       *::before,
@@ -220,6 +220,24 @@
         text-underline-offset: 3px;
       }
 
+      .work-list a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .work-list a:hover {
+        color: var(--accent-hover);
+      }
+
+      .work-list li a strong {
+        font-family: var(--font);
+        font-size: inherit;
+        font-weight: 500;
+        letter-spacing: normal;
+        text-decoration: none;
+      }
+
       /* ── Team ── */
       .team-section {
         margin-top: 48px;
@@ -247,8 +265,9 @@
         height: 120px;
         border-radius: 50%;
         object-fit: cover;
-        margin-bottom: 12px;
+        margin: 0 auto 12px;
         background: var(--bg-alt);
+        display: block;
       }
 
       .team-member__name {
@@ -276,6 +295,30 @@
         font-size: 0.93rem;
         line-height: 1.65;
         color: var(--text);
+        margin-bottom: 32px;
+      }
+
+      .section-divider {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        border: none;
+        border-top: 1px solid rgba(47, 38, 32, 0.1);
+      }
+
+      .mentors-section {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.7s forwards;
+      }
+
+      .mentors-subtitle {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+        width: 100%;
       }
 
       .team-collab a {
@@ -290,6 +333,28 @@
 
       .team-collab a:hover {
         color: var(--accent-hover);
+      }
+
+      .team-section .team-member > a:first-child {
+        display: block;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 12px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .team-section .team-member > a:first-child .team-member__photo {
+        margin: 0;
+        transform: scale(1.12);
+        object-position: center 30%;
+      }
+
+      @media (max-width: 600px) {
+        .team-section .team-member > a:first-child {
+          width: 100px;
+          height: 100px;
+        }
       }
 
       /* ── What's new ── */
@@ -491,8 +556,7 @@
       }
 
       @keyframes decorDrift {
-        0%   { opacity: 0; transform: translateY(0); }
-        5%   { opacity: var(--d-opacity, 0.2); }
+        0%   { opacity: var(--d-opacity, 0.2); transform: translateY(0); }
         90%  { opacity: var(--d-opacity, 0.2); }
         100% { opacity: 0; transform: translateY(-30vh); }
       }
@@ -551,17 +615,73 @@
         }
         
       }
+
+      /* ── Design A: Solaris ocean / Alpine relief ── */
+      :root {
+        --bg: #f7f6f2;
+        --bg-alt: #eeede8;
+        --text: #1e2d52;
+        --text-secondary: #1e2d52b8;
+        --accent: #df4e3c;
+        --accent-hover: #b93a2b;
+        --border: #3d528326;
+        --serif: "Newsreader", "Times New Roman", serif;
+      }
+      body { background: var(--bg); }
+      #field { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+      .page { position: relative; z-index: 1; }
+      .header { padding-top: 120px !important; }
+      .bg-decor { display: none; }
+      .header__eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.04em;
+        color: var(--text-secondary);
+        margin-bottom: 18px;
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0s forwards;
+      }
+      .header__name { font-family: var(--serif); font-weight: 400; font-size: 3rem; letter-spacing: -0.035em; line-height: 1.05; }
+      .header__tagline { font-family: var(--font-mono); font-size: 0.88rem; font-weight: 500; letter-spacing: -0.01em; color: #1e2d5285; margin-top: 12px; }
+      .body .intro { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; line-height: 1.5; letter-spacing: -0.01em; }
+      .body .brand { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
+      .section-heading { color: var(--accent); letter-spacing: 0.16em; }
+      .team-section .team-member > a:first-child { box-shadow: 0 0 0 1px var(--border), 0 0 0 6px var(--bg), 0 0 0 7px var(--border); }
+      .field-legend {
+        position: fixed; left: 20px; bottom: 18px; z-index: 1;
+        font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.04em;
+        color: var(--text-secondary); line-height: 1.7; pointer-events: none;
+        opacity: 0; animation: fadeIn 1s ease 2.2s forwards;
+      }
+      .field-legend i { display: inline-block; width: 18px; height: 0; vertical-align: middle; margin-right: 8px; border-top: 1.5px solid var(--text); }
+      .field-legend i.b { border-top: 1px solid #2c5fa8; width: 8px; margin-right: 2px; }
+      .field-legend i.r { border-top: 1px solid #df4e3c; width: 8px; }
+      @media (max-width: 900px) { .field-legend { display: none; } }
+      @media (max-width: 600px) { .header__name { font-size: 2.3rem; } .header { padding-top: 72px !important; } }
+      .header__mark { display: block; width: 56px; height: auto; margin: 0 auto 18px; opacity: 0; animation: fadeIn 0.8s ease 0s forwards; }
+      #gate { position: fixed; inset: 0; z-index: 100; background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 24px; }
+      #gate[hidden] { display: none; }
+      .gate__form { text-align: center; font-family: var(--font-mono); }
+      .gate__title { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; color: var(--text); margin-bottom: 20px; }
+      .gate__row { display: flex; gap: 8px; justify-content: center; }
+      .gate__form input { font: 0.9rem var(--font-mono); padding: 9px 14px; border: 1px solid #d9d7d0; background: #fff; color: var(--text); border-radius: 10px; width: 200px; outline: none; }
+      .gate__form input:focus { border-color: #a9a69d; box-shadow: none; }
+      .gate__form button { font: 0.85rem var(--font-mono); padding: 9px 16px; border: 0; background: var(--text); color: var(--bg); border-radius: 10px; cursor: pointer; }
+      .gate__error { margin-top: 12px; font-size: 0.75rem; color: var(--accent); min-height: 1em; }
     </style>
   </head>
   <body>
-    <div id="gate" style="position:fixed;inset:0;background:#f7f7f6;display:flex;align-items:center;justify-content:center;z-index:9999;">
-  <div style="text-align:center;">
-    <h2 style="margin-bottom:12px;">Enter password</h2>
-    <input id="pw" type="password" style="padding:10px;font-size:16px;border-radius:4px;border:1px solid #ccc;">
-    <button onclick="check()" style="padding:10px;font-size:16px;">Enter</button>
-  </div>
-</div>
-    <div class="bg-decor" id="bg-decor"></div>
+    <div id="gate">
+      <form class="gate__form" id="gateForm">
+        <p class="gate__title">Solaris Research</p>
+        <div class="gate__row">
+          <input id="pw" type="password" aria-label="Password" placeholder="Password" autocomplete="current-password" />
+          <button type="submit">Enter</button>
+        </div>
+        <p class="gate__error" id="gateError" aria-live="polite"></p>
+      </form>
+    </div>
+    <canvas id="field" aria-hidden="true"></canvas>
     <div class="page">
       <!--
       <div class="eth-bar">
@@ -584,88 +704,105 @@
       <!-- ── Mission ── -->
       <main class="body">
         <p class="intro">
-          <span class="brand">Solaris Research</span> is a technical AI safety initiative by researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer"><strong>ETH Z&uuml;rich</strong></a>. We build the science to detect, understand and prevent failures in frontier models: independent, open safety science the world can rely on.
+          <span class="brand">Solaris Research</span> is a technical AI safety research non-profit by researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer"><strong>ETH&nbsp;Z&uuml;rich</strong></a>. We build the science to detect, understand and prevent failures in frontier models: independent, open safety science the world can rely on.
         </p>
 
         <div class="divider--full"></div>
 
         <p>
-          Frontier models are deployed in new contexts at massive scale<sup><a href="https://epoch.ai/data/ai-companies?view=graph&tab=usage" target="_blank" rel="noopener noreferrer" title="Epoch AI — usage data on frontier AI companies">1</a></sup>, yet we have almost no science for how risk profiles shift as models undergo continuous narrow fine-tuning, or are put in harnesses, post-release. 
-          We study this gap with a concrete research bet: emergent misalignment such as deception, sycophancy and evaluation awareness leave latent low-dimensional traces inside models, allowing not only for mechanistic reversal but also scaling-law prediction from training dynamics.
+          A safety claim is a statement about an AI system across a <em>space of conditions</em>: architecture, scale, inference budget, tools and deployment harness. While most harms from AI arise from large closed models released as agents at massive scale<sup><a href="https://en.wikipedia.org/wiki/OpenAI_rogue_agent_breach_of_Hugging_Face" target="_blank" rel="noopener noreferrer" title="OpenAI rogue agent breach of Hugging Face">1</a></sup>, most scientific evidence is collected at one point in that space: on small dense open models in single chat conversations. As such, we have almost no understanding of how a model&rsquo;s risk profile shifts after release: under narrow fine-tuning, in long-context multi-turn interactions, inside a harness, or generally in RSI conditions<sup><a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener noreferrer" title="Recursive self-improvement">2</a></sup>.
         </p>
 
         <p>
-          In our recent oral position paper at ICML 2026 (top 0.7%), <a href="https://openreview.net/pdf?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>Anthropomorphic Misalignment Research Needs Stronger Evidence</strong></a>, we show that many scientific claims on safety are not supported by sufficient evidence, proposing explicit evidence levels for grading how strong a claim truly is. <!--We prioritise explicit measurement design, sufficient scale and tests for alternative explanations with intervention-based validation. The research questions are narrow; the stakes are not.
-        </p>
-
-        <p>-->
-          Our wider work spans theory and practice: theoretical results on
-          <a href="https://drive.google.com/file/d/1JolS_i4IEV5chE6EbTCdwvyz17K8ifpj/view?usp=sharing" target="_blank" rel="noopener noreferrer"><strong>LLM safety being low-dimensional</strong></a>, practical red-teaming on
-          <a href="https://arxiv.org/pdf/2602.05746" target="_blank" rel="noopener noreferrer"><strong>prompt injection</strong></a>, 
-          <a href="https://arxiv.org/pdf/2505.24445" target="_blank" rel="noopener noreferrer"><strong>geometric polytope-</strong></a> and
-          <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>probe-based steering</strong></a>, reproducible analysis of
-          <a href="https://lukas-fluri.com/papers/safe-reward-model-optimization/" target="_blank" rel="noopener noreferrer"><strong>reward-model optimisation</strong></a> and <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>RLHF misleading humans</strong></a>, 
-          <a href="https://arxiv.org/abs/2607.18538" target="_blank" rel="noopener noreferrer"><strong>benchmarks for cryptographic schemes</strong></a>, 
-          and evaluation with <a href="https://openreview.net/pdf?id=ukLxqA8zXj" target="_blank" rel="noopener noreferrer"><strong>differential pullback</strong></a>. We develop and release
-          <a href="https://github.com/understandable-machine-intelligence-lab/Quantus" target="_blank" rel="noopener noreferrer"><strong>open-source software</strong></a> and run
-          <a href="https://apertus-claritas.org/" target="_blank" rel="noopener noreferrer"><strong>Apertus Claritas</strong></a>, the public hub for safety research on open-weight models.
+          Resources to mitigate the thousands of documented AI harms<sup><a href="https://incidentdatabase.ai/" target="_blank" rel="noopener noreferrer" title="AI Incident Database">3</a></sup> are finite and scientists need to do what they can to support policymakers in deciding which threats to prioritise. Our ICML 2026 oral position paper (top 0.7%), <a href="https://openreview.net/pdf?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>Anthropomorphic Misalignment Research Needs Stronger Evidence</strong></a>, provides a calibration to grade misalignment claims by strength of evidence. It is a first step towards building a <em>science of misalignment</em> where anthropomorphic claims, for example on deception and scheming, are weighed by causal support, not by alarm.
         </p>
 
         <p>
-          <b>From evidence to governance.</b> Frontier safety is not only a technical problem for science to solve, nor a Western preference, but a universal right, and should be treated as such. Securing it calls for technical governance grounded in open, neutral and reproducible research; the kind of independent work we are on a mission to do.</p>
+          <b>From research to governance.</b> The stakes are rising fast: protection from AI harms is not only a technical problem for scientists to solve, nor a Western preference, but a universal right and should be treated as such. Securing it calls for <a href="https://make-safety-open.github.io/" target="_blank" rel="noopener noreferrer"><strong>open and rigorous technical research</strong></a> that policymakers can depend on: the kind of independent work Solaris Research is on a mission to do.
         </p>
+
+        <!-- <p style="color:#9aa3ad;">
+          We study this gap with a concrete research bet: emergent misalignment such as deception, sycophancy and evaluation awareness leaves latent low-dimensional traces inside models. These traces allow not only mechanistic reversal but also scaling-law prediction from training dynamics.
+        </p> -->
       </main>
 
       <!-- ── We work on ── -->
       <section class="work-section">
         <h2 class="section-heading">We work on</h2>
-        <p style="font-size:0.95rem;line-height:1.65;margin-bottom:20px;color:var(--text);">
-          Our research bet organises five connected directions:
-        </p>
+        <p style="font-size:0.95rem;line-height:1.65;margin-bottom:20px;color:var(--text);">Our research bet on a <em>science of misalignment</em> organises four connected directions:</p>
         <ul class="work-list">
           <li>
-            <strong>Misalignment science.</strong> How safety-relevant
-            representations form and degrade across pretraining, fine-tuning,
-            and post-deployment adaptation stages
+            <strong>Open verification.</strong> Verifying safety claims independently, we build tools that evaluate misalignment and share our work openly, as with <a href="https://apertus-claritas.org/" target="_blank" rel="noopener noreferrer"><strong>Apertus Claritas</strong></a>, the public hub for safety research on open-weight models.
           </li>
           <li>
-            <strong>Active mechanistic interpretability.</strong> Steering
-            vectors, circuit analysis and probe-guided detection employed proactively as interventions while
-            training
-          </li>
-            <li>
-            <strong>Open benchmarks &amp; evaluations.</strong> Tools, datasets,
-            and reproducible benchmarks on emergent misalignment so other researchers can build on them
-
+            <strong>Training dynamics.</strong> Tracing how safety behaviour forms from pre-training to fine-tuning, we study <a href="https://arxiv.org/abs/2605.16339" target="_blank" rel="noopener noreferrer"><strong>preference instability in reward models</strong></a>, <a href="https://lukas-fluri.com/papers/safe-reward-model-optimization/" target="_blank" rel="noopener noreferrer"><strong>safe reward-model optimisation</strong></a> and how <a href="https://iclr-blogposts.github.io/2026/blog/2026/mislead-lm/" target="_blank" rel="noopener noreferrer"><strong>RLHF can mislead humans</strong></a>.
           </li>
           <li>
-            <strong>Adversarial robustness &amp; security.</strong> Red-teaming,
-            prompt injection and the security properties of models under attack
-            and in deployment
+            <strong>Agentic attack surfaces.</strong> Testing whether models remain under control once they act as agents, we study how emergently misaligned LLMs cause <a href="https://arxiv.org/abs/2610.15961" target="_blank" rel="noopener noreferrer"><strong>agentic misconduct</strong></a>, benchmark <a href="https://arxiv.org/abs/2607.18538" target="_blank" rel="noopener noreferrer"><strong>LLMs on cryptographic schemes</strong></a> and automate <a href="https://arxiv.org/pdf/2602.05746" target="_blank" rel="noopener noreferrer"><strong>prompt injection with RL</strong></a>.
           </li>
           <li>
-            <strong>Harness safety.</strong> How tool calling, memory and multi-agent coordination in harness systems compound anthropomorphised misalignment risks
-
-
+            <strong>Mechanistic intervention.</strong> Locating where safety representations emerge within a model, we show that <a href="https://arxiv.org/abs/2609.20129" target="_blank" rel="noopener noreferrer"><strong>local sparsity detects unsafe outputs without supervision</strong></a> and that learned <a href="https://arxiv.org/abs/2505.24445" target="_blank" rel="noopener noreferrer"><strong>geometric polytopes</strong></a> or <a href="https://openreview.net/pdf?id=fUCPq5RvmH" target="_blank" rel="noopener noreferrer"><strong>probe-based calibrated</strong></a> steering can reverse unsafe behaviour.
           </li>
         </ul>
+        <!-- previous three bets kept for reference:
+<p style="font-size:0.95rem;line-height:1.65;margin-bottom:20px;color:var(-text);">Our research bet organises three connected directions:</p>
+        <ul class="work-list">
+          <li>
+            <strong>Science of misalignment.</strong> When is a claim that a model deceives or has intent supported by evidence? We define evidence levels and test whether they transfer from small open models to frontier systems.
+          </li>
+          <li>
+            <strong>Agentic safety and security.</strong> Safety measured on a bare model may not survive tools, memory and other agents. We study verified harnesses, prompt injection and data poisoning.
+          </li>
+          <li>
+            <strong>Technical governance and verification.</strong> Safety evidence that excludes Chinese models and researchers cannot support an international agreement. We build evaluations that Beijing, Washington and Brussels can each rerun and contest.
+          </li>
+        </ul>
+        -->
       </section>
 
       <!-- ── What's new ── -->
       <section id="news" class="news-section">
         <h2 class="section-heading">What&rsquo;s new</h2>
         <ul class="news-list">
-          <!--<li>
-            <span class="news-date">May 2026</span>
-            <a href="https://www.linkedin.com/posts/anthropic-eth-zurich-ai-sprint-yesterday-ugcPost-7473845761894461441-gAb6/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA5-hoIBwtopyQ0XfYDdFEy2zlOvmK1gt0U" target="_blank" rel="noopener noreferrer"><strong>Anthropic hackathon</strong></a> at the ETH AI Center.
-          </li>-->
+          <li>
+            <span class="news-date">Oct 2026</span>
+            Four main-track and two workshop papers accepted at NeurIPS.
+          </li>
+          <li>
+            <span class="news-date">Oct 2026</span>
+            Solaris Research covered in <a href="https://ethz.ch/en/news-and-events/eth-news/news/2026/09/with-ai-we-often-confuse-behaviour-with-intention.html" target="_blank" rel="noopener noreferrer"><strong>ETH News</strong></a>.
+          </li>
+          <li>
+            <span class="news-date">Oct 2026</span>
+            Second compute grant accepted by the Swiss AI Initiative.
+          </li>
+          <li>
+            <span class="news-date">Oct 2026</span>
+            Co-hosted a <a href="https://www.plusx.ai/2026-sessions-list/staging-%C3%97-misalignment-science%3A-when%2C-where-and-how-safety-enters-llm-training" target="_blank" rel="noopener noreferrer"><strong>Staging and LLM alignment track</strong></a> at AI+X Summit.
+          </li>
+          <li>
+            <span class="news-date">Sept 2026</span>
+            Co-initiated the <a href="https://make-safety-open.github.io/" target="_blank" rel="noopener noreferrer"><strong>Call for Open Science in AI Safety</strong></a>.
+          </li>
+          <li>
+            <span class="news-date">Sept 2026</span>
+            Seed funding from <a href="https://astralisfoundation.org/" target="_blank" rel="noopener noreferrer"><strong>Astralis Foundation</strong></a> and <a href="https://www.macroscopicventures.com/" target="_blank" rel="noopener noreferrer"><strong>Macroscopic Ventures</strong></a>.
+          </li>
+          <li>
+            <span class="news-date">Sept 2026</span>
+            First cohort of fellows has joined Solaris Research.
+          </li>
+          <li>
+            <span class="news-date">July 2026</span>
+            Moderated sessions at the <a href="https://www.far.ai/events/seoul-alignment-workshop-2026" target="_blank" rel="noopener noreferrer"><strong>FAR.AI Alignment Workshop</strong></a> in Seoul.
+          </li>
           <li>
             <span class="news-date">May 2026</span>
             <a href="https://openreview.net/pdf?id=2XifsoNIrs" target="_blank" rel="noopener noreferrer"><strong>AMR position paper</strong></a> was awarded an oral (top 0.7%) at ICML 2026.
           </li>
           <li>
             <span class="news-date">April 2026</span>
-            Compute grant was accepted by the Swiss AI Initiative.
+            First compute grant accepted by the Swiss AI Initiative.
           </li>
           <li>
             <span class="news-date">March 2026</span>
@@ -677,86 +814,104 @@
       <!-- ── Team ── -->
       <section class="team-section">
         <h2 class="section-heading">The team</h2>
-        <div class="team-grid">
-          <p class="team-collab">
-          We are a self-organised group of safety-driven researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer">ETH Z&uuml;rich</a>, combining deep technical competence with institutional independence. 
-          We work closely with
-          <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">LAS group</a> (Prof. Andreas Krause),
-          <a href="https://ivia.inf.ethz.ch/" target="_blank" rel="noopener noreferrer">IVIA lab</a> (Prof. Menna El-Assady),
-          <a href="https://www.spylab.ai/" target="_blank" rel="noopener noreferrer">SPY Lab</a> (Prof. Florian Tramèr), <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer">ETH AI Center</a> (Dr. Imanol Schlag) in the
-          <a href="https://www.swiss-ai.org/" target="_blank" rel="noopener noreferrer">Swiss AI</a> ecosystem.
+        <p class="team-collab">
+          We are a self-organised group of safety-driven researchers at <a href="https://ethz.ch/en.html" target="_blank" rel="noopener noreferrer"><strong>ETH Z&uuml;rich</strong></a>, combining deep technical competence with institutional independence. We work closely with
+          <a href="https://las.inf.ethz.ch/" target="_blank" rel="noopener noreferrer"><strong>LAS group</strong></a> (Prof. Andreas Krause),
+          <a href="https://www.spylab.ai/" target="_blank" rel="noopener noreferrer"><strong>SPY Lab</strong></a> (Prof. Florian Tram&egrave;r),
+          <a href="https://ivia.inf.ethz.ch/" target="_blank" rel="noopener noreferrer"><strong>IVIA lab</strong></a> (Prof. Menna El-Assady) and the <a href="https://ai.ethz.ch/" target="_blank" rel="noopener noreferrer"><strong>ETH AI Center</strong></a> (Dr. Imanol Schlag) in the
+          <a href="https://www.swiss-ai.org/" target="_blank" rel="noopener noreferrer"><strong>Swiss AI</strong></a> ecosystem.
         </p>
+        <div class="team-grid">
           <div class="team-member">
             <a href="https://annahedstroem.com" target="_blank" rel="noopener noreferrer"><img
               class="team-member__photo"
-              src="https://annahedstroem.com/assets/profile.png"
+              src="img/anna.jpg"
               alt="Anna Hedstr&ouml;m"
               loading="lazy"
             /></a>
             <p class="team-member__name">
               <a href="https://annahedstroem.com" target="_blank" rel="noopener noreferrer">Anna Hedstr&ouml;m</a>
             </p>
-            <p class="team-member__role">Core team</p>
+            <p class="team-member__role">Co-founder</p>
           </div>
           <div class="team-member">
             <a href="https://www.xccyn.com" target="_blank" rel="noopener noreferrer"><img
               class="team-member__photo"
-              src="https://www.xccyn.com/author/xin-chen-cynthia/avatar_hudfbcb52b115b74508941974336b7302d_1394505_270x270_fill_q90_lanczos_center.jpg"
+              src="img/cynthia.jpg"
               alt="Cynthia Chen"
               loading="lazy"
             /></a>
             <p class="team-member__name">
               <a href="https://www.xccyn.com" target="_blank" rel="noopener noreferrer">Cynthia Chen</a>
             </p>
-            <p class="team-member__role">Core team</p>
+            <p class="team-member__role">Co-founder</p>
           </div>
           <div class="team-member">
-            <a href="https://luk-s.github.io" target="_blank" rel="noopener noreferrer"><img
+            <a href="https://lukas-fluri.com" target="_blank" rel="noopener noreferrer"><img
               class="team-member__photo"
               src="img/team/lukas-fluri.jpg"
               alt="Lukas Fluri"
               loading="lazy"
             /></a>
             <p class="team-member__name">
-              <a href="https://luk-s.github.io" target="_blank" rel="noopener noreferrer">Lukas Fluri</a>
+              <a href="https://lukas-fluri.com" target="_blank" rel="noopener noreferrer">Lukas Fluri</a>
             </p>
-            <p class="team-member__role">Core team</p>
+            <p class="team-member__role">Co-founder</p>
           </div>
         </div>
       </section>
 
-      <!-- ── Work with us ── -->
-      <section class="opps-section">
-        <h2 class="section-heading">Work with us</h2>
-        <p>
-          As frontier capability concentrates in a few labs, open models and neutral, evidence-first safety science have never mattered more.  We work with students, research labs and industry partners who share our commitment to reducing AI risk.
-          </p>
-          
-          <ul class="opps-list">
-  <li>
-    <strong>Student thesis, semester &amp; independent projects</strong>: work on impactful problems, co-supervised across ETH labs, with a path toward ML publication
-  </li>
-  <li>
-    <strong>Project collaborators</strong>: bring a clear safety question; we provide compute and co-mentorship across misalignment, evaluation and interpretability topics
-  </li>
-  <li>
-    <strong>Labs &amp; industry partners</strong>: if you deploy ML models in high-stakes settings and need safety audits after adaptation, collaborate with us
-  </li>
-</ul>
-<!--
-<p>
-          Get in touch <a class="mono" href="mailto:team@solaris-research.org">team@solaris-research.org</a>.
-          </p>
-        -->
-                  
+      <!-- ── Mentors ── -->
+      <!--
+      <section class="mentors-section">
+        <h2 class="section-heading">The Mentors</h2>
+        <p class="mentors-subtitle">Guided by world-leading safety and alignment researchers.</p>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="team-member__photo" style="background-color: #d3d3d3;"></div>
+            <p class="team-member__name">Mentor 1</p>
+            <p class="team-member__role">FAR.ai</p>
+          </div>
+          <div class="team-member">
+            <div class="team-member__photo" style="background-color: #d3d3d3;"></div>
+            <p class="team-member__name">Mentor 2</p>
+            <p class="team-member__role">Goodfire</p>
+          </div>
+          <div class="team-member">
+            <div class="team-member__photo" style="background-color: #d3d3d3;"></div>
+            <p class="team-member__name">Mentor 3</p>
+            <p class="team-member__role">Anthropic</p>
+          </div>
+          <div class="team-member">
+            <div class="team-member__photo" style="background-color: #d3d3d3;"></div>
+            <p class="team-member__name">Mentor 4</p>
+            <p class="team-member__role">MIT</p>
+          </div>
+          <div class="team-member">
+            <div class="team-member__photo" style="background-color: #d3d3d3;"></div>
+            <p class="team-member__name">Mentor 5</p>
+            <p class="team-member__role">OpenAI</p>
+          </div>
+          <div class="team-member">
+            <div class="team-member__photo" style="background-color: #d3d3d3;"></div>
+            <p class="team-member__name">Mentor 6</p>
+            <p class="team-member__role">EleutherAI</p>
+          </div>
+        </div>
       </section>
+      -->
 
-      <!-- ── Bottom links ── -->
-      <nav class="links">
-        <a href="https://airtable.com/appDJ1cKS5kKF6WWz/pagTr12g1E0e5B6U1" target="_blank" rel="noopener noreferrer">Apply as a student</a>
-        <a href="https://airtable.com/appDJ1cKS5kKF6WWz/pagXDsVRWBRNLYeyg/form" target="_blank" rel="noopener noreferrer">Collaborate with us</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      <!-- ── Collaborate with us ── -->
+      <section class="opps-section">
+        <h2 class="section-heading">Join us</h2>
+        <p>
+          We are currently scoping our next research project with partners in academia, labs and government. To reach us, email <a href="mailto:team@solaris-research.org"><strong>team@solaris-research.org</strong></a>.
+        </p>
+        <p>
+          Applications for our next fellowship close on 15 November. <a href="https://airtable.com/appDJ1cKS5kKF6WWz/pagTr12g1E0e5B6U1" target="_blank" rel="noopener noreferrer"><strong>Apply</strong></a> as an ETH student.
+        </p>
+      </section>
+      <!-- Work with us section and bottom links (Collaborate with us, Apply as a fellow) removed after Cynthia's review, 26 Oct 2026; see index_camera_ready_pre-cynthia.html -->
 
       <footer class="footer">
         <nav class="footer-nav" aria-label="Site information">
@@ -768,124 +923,119 @@
       </footer>
     </div>
   <script>
-  var els = '.header__name, .header__tagline, .divider, .body, .work-section, .team-section, .news-section, .opps-section, .links, .footer, .cta';
-
-  if (localStorage.getItem("auth") === "1") {
-    document.getElementById("gate").style.display = "none";
-  } else {
-    document.querySelectorAll(els).forEach(function(el) {
-      el.style.animation = 'none';
-      el.style.opacity = '0';
-    });
+(function () {
+  var cv = document.getElementById('field');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, dpr;
+  var P = new Uint8Array(512);
+  (function () { var p = [], s = 20260; for (var i = 0; i < 256; i++) p[i] = i;
+    for (i = 255; i > 0; i--) { s = (s * 16807) % 2147483647; var j = s % (i + 1), t = p[i]; p[i] = p[j]; p[j] = t; }
+    for (i = 0; i < 512; i++) P[i] = p[i & 255]; })();
+  function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function grad(h, x, y, z) { h &= 15; var u = h < 8 ? x : y, v = h < 4 ? y : (h === 12 || h === 14 ? x : z); return ((h & 1) ? -u : u) + ((h & 2) ? -v : v); }
+  function noise(x, y, z) {
+    var X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+    x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+    var u = fade(x), v = fade(y), w = fade(z);
+    var A = P[X] + Y, AA = P[A] + Z, AB = P[A + 1] + Z, B = P[X + 1] + Y, BA = P[B] + Z, BB = P[B + 1] + Z;
+    return lerp(lerp(lerp(grad(P[AA], x, y, z), grad(P[BA], x - 1, y, z), u), lerp(grad(P[AB], x, y - 1, z), grad(P[BB], x - 1, y - 1, z), u), v),
+      lerp(lerp(grad(P[AA + 1], x, y, z - 1), grad(P[BA + 1], x - 1, y, z - 1), u), lerp(grad(P[AB + 1], x, y - 1, z - 1), grad(P[BB + 1], x - 1, y - 1, z - 1), u), v), w);
   }
-
-  function unlock() {
-    document.getElementById("gate").style.display = "none";
-    document.querySelectorAll(els).forEach(function(el) {
-      el.style.animation = '';
-      el.style.opacity = '';
-      var a = el.style.animation;
-      el.style.animation = 'none';
-      el.offsetHeight;
-      el.style.animation = '';
-    });
+  function fbm(x, y, z) { return noise(x, y, z) + 0.5 * noise(2 * x + 5.2, 2 * y + 1.3, 1.4 * z) + 0.25 * noise(4 * x + 9.1, 4 * y + 7.7, 2 * z); }
+  function hash(i) { var x = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); }
+  function smooth(a, b, x) { var t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+  function calm(alpha) {
+    ctx.globalCompositeOperation = 'destination-out';
+    var cx = W / 2, half = W < 760 ? W : 360, edge = 200;
+    var gr = ctx.createLinearGradient(cx - half - edge, 0, cx + half + edge, 0), f = edge / (2 * half + 2 * edge);
+    var mid = 'rgba(0,0,0,' + alpha + ')';
+    gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(f, mid); gr.addColorStop(1 - f, mid); gr.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = gr; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'source-over';
   }
-
-  function check() {
-    if (document.getElementById("pw").value === "solaris2026") {
-      localStorage.setItem("auth", "1");
-      unlock();
-    } else {
-      alert("Wrong password");
-    }
-  }
-
-  // Scattered dots + slowly spinning orbits — appear after 5s
-  setTimeout(function() {
-    var c = document.getElementById('bg-decor');
-    if (!c) return;
-
-    // Decorative dots
-    var dots = [
-      { x: 3,  y: 5,  s: 6,  color: '#df4e3c', op: 0.30, delay: 0,   dur: 70 },
-      { x: 94, y: 3,  s: 5,  color: '#092544', op: 0.20, delay: 0.3, dur: 65 },
-      { x: 7,  y: 25, s: 4,  color: '#092544', op: 0.25, delay: 0.6, dur: 80 },
-      { x: 96, y: 22, s: 7,  color: '#df4e3c', op: 0.28, delay: 0.2, dur: 55 },
-      { x: 2,  y: 48, s: 5,  color: '#df4e3c', op: 0.22, delay: 0.8, dur: 75 },
-      { x: 91, y: 50, s: 4,  color: '#092544', op: 0.30, delay: 0.5, dur: 60 },
-      { x: 11, y: 70, s: 3,  color: '#092544', op: 0.18, delay: 1.0, dur: 85 },
-      { x: 89, y: 75, s: 6,  color: '#df4e3c', op: 0.24, delay: 0.7, dur: 70 },
-      { x: 5,  y: 88, s: 4,  color: '#df4e3c', op: 0.16, delay: 1.2, dur: 90 },
-      { x: 97, y: 42, s: 3,  color: '#092544', op: 0.26, delay: 0.4, dur: 65 },
-      { x: 15, y: 12, s: 5,  color: '#df4e3c', op: 0.18, delay: 0.9, dur: 75 },
-      { x: 85, y: 88, s: 4,  color: '#092544', op: 0.20, delay: 1.1, dur: 80 },
-    ];
-
-    dots.forEach(function(d) {
-      var el = document.createElement('div');
-      el.className = 'decor-dot';
-      el.style.cssText =
-        'left:' + d.x + '%;top:' + d.y + '%;' +
-        'width:' + d.s + 'px;height:' + d.s + 'px;' +
-        'background:' + d.color + ';' +
-        '--d-opacity:' + d.op + ';' +
-        '--drift-dur:' + d.dur + 's;' +
-        'animation-delay:' + d.delay + 's;';
-      c.appendChild(el);
-    });
-
-    // Orbit systems — more of them, less transparent
-    var orbits = [
-      { x: 5,  y: 10, size: 30, color: '#df4e3c', op: 0.18, rings: 2, delay: 0.4, dur: 65 },
-      { x: 90, y: 8,  size: 24, color: '#092544', op: 0.15, rings: 2, delay: 0.2, dur: 70 },
-      { x: 3,  y: 30, size: 35, color: '#092544', op: 0.16, rings: 3, delay: 0.8, dur: 80 },
-      { x: 92, y: 28, size: 28, color: '#df4e3c', op: 0.14, rings: 2, delay: 0.6, dur: 60 },
-      { x: 7,  y: 50, size: 22, color: '#df4e3c', op: 0.17, rings: 2, delay: 1.0, dur: 75 },
-      { x: 88, y: 52, size: 38, color: '#092544', op: 0.13, rings: 3, delay: 0.5, dur: 85 },
-      { x: 4,  y: 72, size: 26, color: '#092544', op: 0.15, rings: 2, delay: 1.2, dur: 70 },
-      { x: 94, y: 68, size: 32, color: '#df4e3c', op: 0.12, rings: 2, delay: 0.9, dur: 60 },
-      { x: 14, y: 42, size: 20, color: '#df4e3c', op: 0.14, rings: 2, delay: 0.7, dur: 55 },
-      { x: 83, y: 85, size: 26, color: '#092544', op: 0.16, rings: 2, delay: 1.1, dur: 75 },
-    ];
-
-    orbits.forEach(function(o) {
-      var sys = document.createElement('div');
-      sys.className = 'decor-orbit';
-      sys.style.cssText =
-        'left:' + o.x + '%;top:' + o.y + '%;' +
-        'width:' + (o.size * 2.5) + 'px;height:' + (o.size * 2.5) + 'px;' +
-        '--d-opacity:' + o.op + ';' +
-        '--drift-dur:' + o.dur + 's;' +
-        'color:' + o.color + ';' +
-        'animation-delay:' + o.delay + 's;';
-
-      for (var i = 0; i < o.rings; i++) {
-        var ring = document.createElement('div');
-        ring.className = 'orbit-ring';
-        var r = o.size * (0.4 + i * 0.32);
-        var speed = 20 + Math.random() * 25;
-        var dir = i % 2 === 0 ? 'normal' : 'reverse';
-        ring.style.cssText =
-          'width:' + (r * 2) + 'px;height:' + (r * 2) + 'px;' +
-          'border-width:' + (1 + Math.random() * 0.5) + 'px;' +
-          'border-color:' + o.color + ';' +
-          'opacity:' + (0.5 + Math.random() * 0.3) + ';' +
-          'animation-duration:' + speed + 's;' +
-          'animation-direction:' + dir + ';';
-
-        var dot = document.createElement('div');
-        dot.className = 'ring-dot';
-        var ds = 2.5 + Math.random() * 1.5;
-        dot.style.cssText =
-          'width:' + ds + 'px;height:' + ds + 'px;' +
-          'top:-' + (ds / 2) + 'px;left:50%;margin-left:-' + (ds / 2) + 'px;';
-        ring.appendChild(dot);
-
-        sys.appendChild(ring);
+  var V = {};
+    // B · Clearing: understanding as a clearing in a field of unknowns (stipple)
+  var pts = [];
+  V.dt = 90;
+  V.resize = function () {
+    pts = []; var sp = W < 760 ? 7 : 6, n = 0;
+    for (var y = 0; y < H + sp; y += sp) for (var x = 0; x < W + sp; x += sp) { n++; pts.push(x + (hash(n) - 0.5) * sp, y + (hash(n + 7e4) - 0.5) * sp, hash(n + 3e5)); }
+  };
+  var cache = document.createElement('canvas'), cc = cache.getContext('2d'), lastC = -1e9, sy = 0, lastSy = -1;
+  window.addEventListener('scroll', function () { sy = window.scrollY || 0; }, { passive: true });
+  var revealStart = document.getElementById('gate') ? null : performance.now();
+  window.addEventListener('sr-unlock', function () { if (revealStart === null) revealStart = performance.now(); });
+  function revealAmt() { if (revealStart === null) return 0; var t = Math.min(1, (performance.now() - revealStart) / 7000); return t * t * (3 - 2 * t); }
+  V.draw = function (ms, intro) {
+    ctx.clearRect(0, 0, W, H);
+    var rv = revealAmt();
+    if (ms - lastC > (rv < 1 ? 110 : 350) || cache.width !== Math.round(W * dpr)) { lastC = ms; lastSy = sy; cache.width = Math.round(W * dpr); cache.height = Math.round(H * dpr); cc.setTransform(dpr, 0, 0, dpr, 0, 0); paint(cc, ms); }
+    ctx.globalAlpha = 1; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(cache, 0, 0); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.globalAlpha = 1;
+  };
+  function ridgedN(x, y, z) { var r = 1 - Math.abs(noise(x, y, z)); return r * r; }
+  function relief(x, y) { return 0.62 * ridgedN(x / 190, y / 150, 0.4) + 0.28 * ridgedN(x / 70, y / 55, 1.7) + 0.10 * ridgedN(x / 26, y / 20, 3.1); }
+  function paint(ctx, ms) { var intro = 1;
+    var z = ms * 0.00004, cx = W / 2, cy = H * 0.5, rx = Math.max(W < 760 ? W * 0.62 : 380, W * 0.3), ry = H * 0.62, s = 1 / 240;
+    ctx.fillStyle = 'rgba(61,82,131,' + (0.78 * intro).toFixed(3) + ')';
+    ctx.beginPath();
+    for (var i = 0; i < pts.length; i += 3) {
+      var x = pts[i], y = pts[i + 1], ex = (x - cx) / rx, ey = (y - cy) / ry;
+      var v, p;
+      if (W < 760) {
+        // phones: a frame that hugs the edges and gathers in the corners, leaving the text clear
+        var fx = Math.abs(x - cx) / (W * 0.5), fy = Math.abs(y - cy) / (H * 0.5);
+        v = Math.pow(Math.pow(fx, 6) + Math.pow(fy, 6), 1 / 6) + 0.10 * fbm(x * s * 1.6, y * s * 1.6, z) - 0.02 * Math.sin(ms * 0.00018);
+        p = Math.max(0.6 * smooth(0.95, 1.12, v), 0.85 * smooth(1.45, 1.9, fx + fy + 0.12 * fbm(x * s * 2, y * s * 2, z)));
+      } else {
+        v = Math.sqrt(ex * ex + ey * ey) + 0.38 * fbm(x * s, y * s, z) - 0.06 * Math.sin(ms * 0.00018);
+        p = smooth(0.92, 1.75, v);
       }
-      c.appendChild(sys);
-    });
-  }, 5000);
+      // mountain relief: dots gather on the shaded faces of a ridged terrain, so peaks emerge without lines
+      var h0 = relief(x, y), hl = relief(x + 4, y - 4), shade = (hl - h0) * 9;
+      p *= 0.18 + 1.05 * smooth(-0.05, 0.25, shade) + 0.35 * smooth(0.55, 0.85, h0);
+      if (pts[i + 2] < p * p * revealAmt()) { var r = 0.55 + 0.75 * p; ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, 6.283); }
+    }
+    ctx.fill();
+  }
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2); W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    if (V.resize) V.resize();
+  }
+  var start = performance.now(), last = 0;
+  function loop(now) {
+    if (!reduce) requestAnimationFrame(loop);
+    if (!reduce && now - last < (V.dt || 80)) return;
+    last = now;
+    var ms = reduce ? 40000 : now - start + 20000, intro = reduce ? 1 : Math.min(1, (now - start) / 2500);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    V.draw(ms, intro);
+  }
+  resize();
+  window.addEventListener('resize', function () { resize(); if (reduce) loop(performance.now()); });
+  requestAnimationFrame(loop);
+})();
+
   </script>
-  </body>
+    <script>
+    (function () {
+      var gate = document.getElementById('gate'), ok = false;
+      try { ok = localStorage.getItem('auth') === '1'; } catch (e) {}
+      if (ok) { gate.hidden = true; window.dispatchEvent(new Event('sr-unlock')); return; }
+      document.getElementById('pw').focus();
+      document.getElementById('gateForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (document.getElementById('pw').value === 'solaris2026') {
+          try { localStorage.setItem('auth', '1'); } catch (err) {}
+          gate.hidden = true;
+          window.dispatchEvent(new Event('sr-unlock'));
+        } else { document.getElementById('gateError').textContent = 'Wrong password'; }
+      });
+    })();
+  </script>
+    </body>
 </html>
